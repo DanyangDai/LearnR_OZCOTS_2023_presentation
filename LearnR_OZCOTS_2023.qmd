@@ -1,0 +1,279 @@
+---
+pagetitle: "Open-source interactive self-paced R learning website"
+author: "Danyang Dai"
+date: "16th of November"
+host: "Statistical Society of Australia - QLD"
+institute: "University of Queensland"
+strip-comments: true
+format: 
+  revealjs:
+    logo: images/logos.jpeg
+    slide-number: true
+    incremental: true
+    multiplex: true
+    theme: assets/rladies.scss
+    show-slide-number: all
+    controls: true
+    width: 1280
+    height: 720
+    css: [assets/custom.css, assets/tachyons-addon.css]
+    include-after: |
+      <link rel="stylesheet" href="assets/syntax-highlight.css">
+      <link rel="stylesheet" href="assets/fontawesome-free-6.1.1-web/css/all.min.css">
+      <script src="assets/fontawesome-free-6.1.1-web/js/all.min.js"></script>
+callout-icon: false
+execute:
+  echo: true
+---
+
+##  {#title-slide background="images/bg_titlepage.jpeg" background-size="100%"}
+
+```{r setup, include = FALSE}
+library(tidyverse)
+
+rotating_text <- function(x, align = "center") {
+  glue::glue('
+<div style="overflow: hidden; height: 1.2em;">
+<ul class="content__container__list {align}" style="text-align: {align}">
+<li class="content__container__list__item">{x[1]}</li>
+<li class="content__container__list__item">{x[2]}</li>
+<li class="content__container__list__item">{x[3]}</li>
+<li class="content__container__list__item">{x[4]}</li>
+</ul>
+</div>')
+}
+
+fa_list <- function(x, incremental = FALSE) {
+  icons <- names(x)
+  fragment <- ifelse(incremental, "fragment", "")
+  items <- glue::glue('<li class="{fragment}"><span class="fa-li"><i class="{icons}"></i></span> {x}</li>')
+  paste('<ul class="fa-ul">', 
+        paste(items, collapse = "\n"),
+        "</ul>", sep = "\n")
+}
+
+```
+
+::: title-box
+<h2>`r rmarkdown::metadata$pagetitle`</h2>
+
+👩🏻‍💻 [`r rmarkdown::metadata$author` \@ `r rmarkdown::metadata$institute`]{.author}
+
+`r rotating_text(c("Monash University", "Mitchell O'Hara-Wild", 'Australia National University', 'Emi Tanaka'))`
+:::
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+:::{.absolute .top-0 .rladies-purple .w-100 .font-small}
+[`r rmarkdown::metadata$date`]{.rladies-purple} [`r rmarkdown::metadata$host`]{.rladies-purple}
+:::
+
+::: notes
+
+Hello everybody. Thank you for coming today. I am a first year PhD student at the University of Queensland in the faculty of Medicine. Before I joined UQ, I was working at Monash in the department of Econometrics and Business Statistics and public health department. This body of work is driven by my working experience as statistics and econometrics tutor along with my colleague Emi Tanaka and Mitchell O'Hara-Wild. 
+:::
+
+
+
+## [Has this happened to you before?]{auto-animate="true"} 
+
+
+Ideally, we could like to teach students read in a dataset and have a look at the strucure of the data.
+
+```{r, eval = TRUE}
+library(tidyverse)
+crabs <- read_csv("data/australian-crabs.csv") 
+str(crabs)
+```
+
+## [Has this happened to you before?]{auto-animate="true"} 
+
+In reality:  
+
+
+::: {.incremental}
+
+::: {.r-stack}
+![](images/read_csv_error1.png){.fragment}
+
+![](images/read_csv_error2.png){.fragment width="1000"}
+
+![](images/read_csv_error3.png){.fragment width="1000"}
+
+:::
+
+
+- And many more unexpected <span style="color: red;"> errors</span>! 
+
+:::
+
+
+::: notes
+I am sure many of the statistics and data sciences educators had experienced something similar before. When teaching first year data analysis and statistics units, we sometime unwillingly spent way to much time helping students with their coding problems and sometime event just installation issues. These precious time were taken away from actual courses materials delivering.  
+
+:::
+------------------------------------------------------------------------
+
+## [So what do we do?]{auto-animate="true"}
+
+::: columns
+::: {.column width="50%"}
+
+::: fragment
+```{=html}
+<iframe width="780" height="500" src="https://learnr.numbat.space" title="LearnR"></iframe>
+```
+:::
+:::
+
+::: {.column width="50%"}
+::: fragment
+We present you with a self-paced R learning website. This website is designed for students with no experience in R and RStudio. 
+
+[https://learnr.numbat.space](https://learnr.numbat.space)
+
+:::
+:::
+:::
+
+::: notes
+
+This is an interactive introduction to data analysis with R. 
+
+
+:::
+
+## [What do we do?]{auto-animate="true"}
+
+::: fragment
+![Launch - Di 2016](images/di_1.jpeg)
+:::
+
+::: notes
+This is R-Ladies Melbourne very first event at launching. Professor Di Cook has been such an amazing mentor to our group and has been supporting our group.
+:::
+
+## [What do we do?]{auto-animate="true"}
+
+::: fragment
+![How R you - 2018](images/howRyou.JPG){width="750px"}
+
+::: notes
+This is our How R you event back in 2018.
+:::
+:::
+
+## [What do we do?]{auto-animate="true"}
+
+::: fragment
+![Zoom events - 2020](images/online.jpg){width="750px"}
+:::
+
+::: notes
+I joined R-Laides Melburne hen Covid happened. For amost two years, we could not have any in person event. I didn't get to meet the rest of the organisors for amost two years. But it didn't stop us developing our R skills. We continue to give women works in data science and statisticas opportunity to share their R knowledge with us. With zoom, we are able to have oversea attendees joining us and it really brought all the R-ladies around the world together.
+:::
+
+## [What do we do?]{auto-animate="true"}
+
+::: fragment
+![Back to in person - Di 2022](images/di_2.jpg){width="750px"}
+:::
+
+::: notes
+As covid restrictions easing, we are able to have more in person events! Di continue to be a huge suppotor of R-ladies melbourne! Everyone found the talk on The workflow of tidy data, constructing plots and making data-driven decisions super beneficial.
+
+we are called R-ladies but we do encourage other gender to attend our events.
+:::
+
+## [And more...]{auto-animate="true"}
+
+::: fragment
+-   [Past event: **75**]{.rladies-purple}
+:::
+
+::: fragment
+-   [Total members: **2226**]{.rladies-purple}
+:::
+
+::: fragment
+![It Takes a Spark!](images/ittakes.jpeg){length="500px" width="650px"}
+:::
+
+::: notes
+As covid restrictions easing, we are able to have more in person events! Di continue to be a huge suppotor of R-ladies melbourne! Everyone found the talk on The workflow of tidy data, constructing plots and making data-driven decisions super beneficial.
+
+we are called R-ladies but we do encourage other gender to attend our events.
+:::
+
+## [Come to our next event this Thursday!]{auto-animate="true"}
+
+<center><img src="images/workflowr.jpeg" width="70%" style="border:3px solid black;"/></center>
+
+## [Be part of R-ladies Melbourne]{auto-animate="true"} {background-image="images/rladies_mel.jpg" background-size="40%"}
+
+::: {.box .fragment width="100%"}
+-   [Join the committee: make decisions about the future of R-Ladies Melbourne]{.rladies-purple}
+
+-   [You must identify as a woman or other underrepresented genders]{.rladies-purple}
+:::
+
+::: {.box .fragment width="100%"}
+-   [Join the Volunteer team: to help us with setting up successful events]{.rladies-purple}
+
+-   [Open to everyone so you can show your support to R-Ladies Melbourne]{.rladies-purple}
+:::
+
+# [Sex vs Gender in survey]{.monash-white} {background="images/gender-div.jpg" background-size="100%"}
+
+## [Sex vs Gender in survey]{auto-animate="true"}
+
+::: columns
+::: {.column .box width="100%"}
+::: fragment
+-   **Sex** refers to the chromosomal, gonadal and anatomical characteristics associated with biological sex. Individuals may have a range of circumstances or undergo a variety of treatments that make it difficult to define a true biological sex.
+:::
+:::
+
+::: {.column .box width="100%"}
+::: fragment
+-   **Gender** is part of a person's social and personal identity. It refers to each person's deeply felt internal and individual identity and the way a person presents and is recognised within the community.
+:::
+:::
+
+::: {.column .box width="100%"}
+::: fragment
+-   A person's sex and gender may not necessarily be the same
+:::
+:::
+:::
+
+::: footer
+[CAPTURING GENDER DATA INCLUSIVELY - Monash](https://www.monash.edu/__data/assets/pdf_file/0005/1778378/capturing-gender-data-inclusively-2.pdf)
+:::
+
+## Sex vs Gender in survey
+
+`r fa_list(c("fa-regular fa-square" = "Woman","fa-regular fa-square" = "Man","fa-regular fa-square" = "Non-binary / gender diverse","fa-regular fa-square" = "My gender identity isn't listed. I identify as: ","fa-regular fa-square" = "Prefer not to say"))`
+
+## Sex vs Gender in survey
+
+`r fa_list(c("fa-regular fa-square-check" = "Woman","fa-regular fa-square" = "Man","fa-regular fa-square-check" = "Non-binary / gender diverse","fa-regular fa-square" = "My gender identity isn't listed. I identify as: ","fa-regular fa-square" = "Prefer not to say"))`
+
+# [R]{.rladies-red}[-]{.rladies-purple}[L]{.rladies-orange}[a]{.rladies-yellow}[d]{.rladies-green}[i]{.rladies-blue}[e]{.rladies-indigo}[s]{.rladies-violet}
+
+`r fa_list(c("fa-solid fa-rainbow" = "R-LADIES IS A WORLDWIDE ORGANIZATION WHOSE MISSION IS TO PROMOTE GENDER DIVERSITY IN THE R COMMUNITY.", "fa-solid fa-rainbow" = "The R community suffers from an underrepresentation of minority genders (including but not limited to cis/trans women, trans men, non-binary, genderqueer, agender) in every role and area of participation, whether as leaders, package developers, conference speakers, conference participants, educators, or users."))`
+
+# [R]{.rladies-red}[-]{.rladies-purple}[L]{.rladies-orange}[a]{.rladies-yellow}[d]{.rladies-green}[i]{.rladies-blue}[e]{.rladies-indigo}[s]{.rladies-violet} [?]{.rladies-purple}
+
+`r fa_list(c("fa-solid fa-ban" = "Barrier?", "fa-solid fa-rainbow" = "How can we be more inclusive for minority gender?"))`
+
+## Reference
+
+-   The slides are made using [Quarto](https://quarto.org/) with [Emi Tanaka's](https://github.com/emitanaka/talks) CSS design.
+
+-   Slides can be found at [DanyangDai/brownbag_2022_10_11](https://github.com/DanyangDai/brownbag_2022_10_11)
+
+-   More information about gender data collection: [CAPTURING GENDER DATA INCLUSIVELY - Monash](https://www.monash.edu/__data/assets/pdf_file/0005/1778378/capturing-gender-data-inclusively-2.pdf)
+
+# [T]{.rladies-red}[H]{.rladies-purple}[A]{.rladies-orange}[N]{.rladies-yellow}[K]{.rladies-green} [Y]{.rladies-blue}[O]{.rladies-indigo}[U]{.rladies-violet}[!]{.rladies-purple}
