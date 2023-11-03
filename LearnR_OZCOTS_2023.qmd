@@ -139,32 +139,40 @@ We present you with a self-paced R learning website. This website is designed fo
 
 ::: notes
 
-This is an interactive introduction to data analysis with R. 
+This is an interactive introduction to data analysis with R. There are 9 chapters ordered from teaching students who to install R and RStudio to more advanced R programming skills such as data visualization and regressions. 
 
+This project aims to help students with no programming experience to learn how to use RStudio at their own time and at their own pace. 
 
 :::
 
-## [What do we do?]{auto-animate="true"}
+## [Did it work?]{auto-animate="true"}
 
 ::: fragment
-![Launch - Di 2016](images/di_1.jpeg)
+
+Need some evidence here. 
 :::
 
 ::: notes
-This is R-Ladies Melbourne very first event at launching. Professor Di Cook has been such an amazing mentor to our group and has been supporting our group.
+
 :::
 
-## [What do we do?]{auto-animate="true"}
+## [We have the infurstrure setup and what's next?]{auto-animate="true"}
 
 ::: fragment
-![How R you - 2018](images/howRyou.JPG){width="750px"}
+
+- "Great teachers make it safe to be wrong. They build a Culture of Error that respects, normalizes,and values learning from errors." by Doug Lemov and Norman Atkins from Teach Like a Champion 2.0.  
+
+- Studies^[Dalbey, J., and Linn, M. (1985),Deek, F. P., and McHugh, J. A. (1998), Hoffman & Angelo F. Elmi (2021)] have suggested that students learn more during debug session compared to error-free lecture. 
+
 
 ::: notes
-This is our How R you event back in 2018.
+
+As the statistical concepts are the focus of the subject, during lectures and tutorials, we normally implement an error-free classroom as we just cannot afford to spend too much time on teaching students debug. This valuable lesson of debugging wasn't incorporated in our daily teaching. As much as we want it to be an error free environment, it cannot be true as shown before. 
+
 :::
 :::
 
-## [What do we do?]{auto-animate="true"}
+## [So how to teach students ]{auto-animate="true"}
 
 ::: fragment
 ![Zoom events - 2020](images/online.jpg){width="750px"}
