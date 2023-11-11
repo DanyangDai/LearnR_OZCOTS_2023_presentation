@@ -436,7 +436,7 @@ Emi Tanaka
 </section>
 <section id="has-this-happened-to-you-before" class="slide level2">
 <h2><span data-auto-animate="true">Has this happened to you before?</span></h2>
-<p>Ideally, we could like to teach students read in a dataset and have a look at the strucure of the data.</p>
+<p>Ideally, we could like to teach students read in a dataset and have a look at the structure of the data.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2"></a>crabs <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/australian-crabs.csv"</span>) </span>
@@ -480,7 +480,7 @@ Emi Tanaka
 </ul>
 </div>
 <aside class="notes">
-<p>I am sure many of the statistics and data sciences educators had experienced something similar before. When teaching first year data analysis and statistics units, we sometime unwillingly spent way to much time helping students with their coding problems and sometime event just installation issues. These precious time were taken away from actual courses materials delivering.</p>
+<p>I am sure many of the statistics and data sciences educators had experienced something similar before. When teaching first year data analysis and statistics units, we sometime unwillingly spent way to much time helping students with their coding problems and sometime event just installation issues. These precious time were taken away from actual courses materials delivering. The current mode of teaching requires tutors to come to every students and help them with their individual bugs. If we are lucky, there will be some students who can help each other out.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -493,19 +493,173 @@ Emi Tanaka
           display:block!important;
       }</style></aside>
 </section>
-<section id="so-what-do-we-do" class="slide level2">
-<h2><span data-auto-animate="true">So what do we do?</span></h2>
+<section class="slide level2">
+
+<p><br></p>
+<p class="big" ,="" style="text-align: center;"><span style="color: red;"> errors</span></p>
+<p><br></p>
+<p class="big" ,="" style="text-align: center;">😠💥 ❗</p>
+<aside class="notes">
+<p>As the statistical concepts are the focus of the subject, during lectures and tutorials, we normally implement an error-free classroom as we just cannot afford to spend too much time on teaching students debug. Students tend to get frustrated when they in counter error messages.</p>
+<p>So how should we manage this inefficient way of education mode?</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="it-is-ok-to-make-mistakes" class="slide level2">
+<h2><span data-auto-animate="true">It is ok to make mistakes</span></h2>
+<div class="fragment">
+<ul>
+<li class="fragment"><p>“Great teachers make it safe to be wrong. They build a Culture of Error that respects, normalizes,and values learning from errors.” by Doug Lemov and Norman Atkins from Teach Like a Champion 2.0.</p></li>
+<li class="fragment"><p>Studies<sup>1</sup> have suggested that students learn more during debug session compared to error-free lecture.</p></li>
+</ul>
+</div>
+<aside class="notes">
+<p>From the Book teach like a Champion, it tells us that educators should make students to feel comfortable of making mistakes. And that includes normalizing error codes.</p>
+<p>This valuable lesson of debugging wasn’t incorporated in our daily teaching. Even when the lectures and tutorials are all being delivered in error-free way. We have carefully designed the materials and we made sure that there isn’t any errors within our materials.</p>
+<p>However, as much as we want it to be an error free environment, it cannot be true. As shown before, students would always encounter some error codes.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<aside><ol class="aside-footnotes"><li id="fn1"><p>Dalbey, J., and Linn, M. (1985),Deek, F. P., and McHugh, J. A. (1998), Hoffman &amp; Angelo F. Elmi (2021)</p></li></ol></aside></section>
+<section id="understanding-error-code" class="slide level2">
+<h2><span data-auto-animate="true">Understanding error code</span></h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="fragment">
-<iframe width="780" height="500" src="https://learnr.numbat.space" title="LearnR"></iframe>
+<p><img data-src="images/read_csv_error4.png"> <img data-src="images/syntax_error1.png"> <img data-src="images/read_csv_error1.png"></p>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="fragment">
-<p>We present you with a self-paced R learning website. This website is designed for students with no experience in R and RStudio.</p>
+<ul>
+<li class="fragment">Check Spelling</li>
+<li class="fragment">Syntax missing <code>(</code> or <code>)</code> or <code>{</code> or <code>}</code> ect.</li>
+<li class="fragment">Loading required packages</li>
+<li class="fragment">Search the messages</li>
+<li class="fragment">Turn it on and off again 👼</li>
+</ul>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>There are some basics self-checking techniques that we can teach students to help themselves. For example, it would be simple typos somewhere in your function or the path you supplied. Another common mistakes is syntax errors. This sometime can be easy and difficult to spot depending on how long your function is. A common on that I sometime make is using pips for ggplot where it should be plus sign. If it comes to a relatively complex question, goggling is the next step we recommend students to do.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="it-is-okay-to-ask-question-but-where" class="slide level2">
+<h2><span data-auto-animate="true">It is okay to ask question, but where 😕</span></h2>
+<div class="fragment">
+<ul>
+<li class="fragment">Unit’s Moodle page</li>
+<li class="fragment"><a href="https://stackoverflow.com/questions/tagged/rstudio">Stack Overflow</a></li>
+<li class="fragment"><a href="https://community.rstudio.com">Posit Community</a></li>
+<li class="fragment"><a href="https://github.com">Github</a></li>
+</ul>
+<aside class="notes">
+<p>In additional on encouraging students to debug themselves, we also recommend students to help each other out by posting their questions on Moodle pages. This is also a good practice for students to normalizing making mistakes. When you see other people having the same problem, you know that you are not the only one. You are all in this together. Students will also be able to build their knowledge sets and confident by helping others out. There are other public channels where you can seek for help such us Stack Overflow, Posit Community and Github if you have any specific questions that you want to direct it to the package authors.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</div>
+</section>
+<section id="it-is-okay-to-ask-question-but-how" class="slide level2">
+<h2><span data-auto-animate="true">It is okay to ask question, but how 😕</span></h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<div class="fragment">
+<!-- -->
+<h3 id="question"><span style="color: red;"> QUESTION</span> 🚯</h3>
+</div>
+</div><div class="column" style="width:70%;">
+<div class="fragment">
+<!-- -->
+<h3 id="minimal-reproducible-examples">Minimal reproducible examples</h3>
+<ul>
+<li class="fragment"><p>Does your error relates to dataset? Provide minimal datasets</p></li>
+<li class="fragment"><p>Provide minimal code. Not just a screenshot.</p></li>
+<li class="fragment"><p>Provide session information using <code>sessioninfo::session_info()</code></p></li>
+<li class="fragment"><p>Using the <code>reprex</code> package for producing examples</p></li>
+</ul>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>As a tutor, one big part of my job is to answer students’ questions on Moodle pages. And I do get email notifications with their questions.</p>
+<p>I often see this heading: Question. This type of heading I found to be meaning less. When you post on the question page, of course I know it is a question. And when I click into the question, there is normally a screenshot of the error code and then asking why and how to fix it.</p>
+<p>This sometimes become frustrated for me because I need to explain that I couldn’t really help you with just a screenshot of your error messages or just error codes. I need more information to understand this problem. After many times of this, we decide that it is important for students to understand minimal reproducible examples.</p>
+<p>This is an efficient way to help students learning how to debug. During the process of creating this minimal reproducible examples, sometime the problem fix themselves. It also improved the communication between students and tutors. Instead of going back and forth on what is the problem, we are able to understand the problem and provide solutions.</p>
+<p>This way, we are also preparing our students for their future study and work. Because they are not only posting their questions at Moodle but also on public channels such us Stack Overflows. Learning how to do create minimal reproducible examples is an transferable skills for working at pip lines where you need to be able to clearly states what is the problem.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="saving-more-time-in-classroom" class="slide level2">
+<h2><span data-auto-animate="true">Saving more time in classroom</span></h2>
+<div class="fragment">
+<iframe width="1000" height="500" src="https://learnr.numbat.space/chapter3#4" title="Minimal reproducibke examples"></iframe>
+</div>
+<aside class="notes">
+<p>All the procedures mentioned above have been packaged up into our learnR website.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="more-to-learnr-website" class="slide level2">
+<h2><span data-auto-animate="true">More to learnR website</span></h2>
+<div class="fragment">
+<iframe width="1000" height="500" src="https://learnr.numbat.space" title="LearnR"></iframe>
+</div>
+<div class="fragment">
 <p><a href="https://learnr.numbat.space">https://learnr.numbat.space</a></p>
-</div>
-</div>
 </div>
 <aside class="notes">
 <p>This is an interactive introduction to data analysis with R. There are 9 chapters ordered from teaching students who to install R and RStudio to more advanced R programming skills such as data visualization and regressions.</p>
@@ -524,262 +678,68 @@ Emi Tanaka
 </section>
 <section id="did-it-work" class="slide level2">
 <h2><span data-auto-animate="true">Did it work?</span></h2>
-<div class="fragment">
-<p>Need some evidence here.</p>
-</div>
-<aside class="notes">
-
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="we-have-the-infurstrure-setup-and-whats-next" class="slide level2">
-<h2><span data-auto-animate="true">We have the infurstrure setup and what’s next?</span></h2>
-<div class="fragment">
-<ul>
-<li class="fragment"><p>“Great teachers make it safe to be wrong. They build a Culture of Error that respects, normalizes,and values learning from errors.” by Doug Lemov and Norman Atkins from Teach Like a Champion 2.0.</p></li>
-<li class="fragment"><p>Studies<sup>1</sup> have suggested that students learn more during debug session compared to error-free lecture.</p></li>
-</ul>
-<aside class="notes">
-<p>As the statistical concepts are the focus of the subject, during lectures and tutorials, we normally implement an error-free classroom as we just cannot afford to spend too much time on teaching students debug.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</div>
-<aside><ol class="aside-footnotes"><li id="fn1"><p>Dalbey, J., and Linn, M. (1985),Deek, F. P., and McHugh, J. A. (1998), Hoffman &amp; Angelo F. Elmi (2021)</p></li></ol></aside></section>
-<section id="what-do-we-do" class="slide level2">
-<h2><span data-auto-animate="true">What do we do?</span></h2>
-<div class="fragment">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="images/online.jpg" width="750"></p>
-<figcaption>Zoom events - 2020</figcaption>
-</figure>
-</div>
-</div>
-<aside class="notes">
-<p>I joined R-Laides Melburne hen Covid happened. For amost two years, we could not have any in person event. I didn’t get to meet the rest of the organisors for amost two years. But it didn’t stop us developing our R skills. We continue to give women works in data science and statisticas opportunity to share their R knowledge with us. With zoom, we are able to have oversea attendees joining us and it really brought all the R-ladies around the world together.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="what-do-we-do-1" class="slide level2">
-<h2><span data-auto-animate="true">What do we do?</span></h2>
-<div class="fragment">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="images/di_2.jpg" width="750"></p>
-<figcaption>Back to in person - Di 2022</figcaption>
-</figure>
-</div>
-</div>
-<aside class="notes">
-<p>As covid restrictions easing, we are able to have more in person events! Di continue to be a huge suppotor of R-ladies melbourne! Everyone found the talk on The workflow of tidy data, constructing plots and making data-driven decisions super beneficial.</p>
-<p>we are called R-ladies but we do encourage other gender to attend our events.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="and-more" class="slide level2">
-<h2><span data-auto-animate="true">And more…</span></h2>
-<div class="fragment">
-<ul>
-<li class="fragment"><span class="rladies-purple">Past event: <strong>75</strong></span></li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li class="fragment"><span class="rladies-purple">Total members: <strong>2226</strong></span></li>
-</ul>
-</div>
-<div class="fragment">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="images/ittakes.jpeg" data-length="500px" width="650"></p>
-<figcaption>It Takes a Spark!</figcaption>
-</figure>
-</div>
-</div>
-<aside class="notes">
-<p>As covid restrictions easing, we are able to have more in person events! Di continue to be a huge suppotor of R-ladies melbourne! Everyone found the talk on The workflow of tidy data, constructing plots and making data-driven decisions super beneficial.</p>
-<p>we are called R-ladies but we do encourage other gender to attend our events.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="come-to-our-next-event-this-thursday" class="slide level2">
-<h2><span data-auto-animate="true">Come to our next event this Thursday!</span></h2>
-<center>
-<img src="images/workflowr.jpeg" width="70%" style="border:3px solid black;">
-</center>
-</section>
-<section id="be-part-of-r-ladies-melbourne" class="slide level2" data-background-image="images/rladies_mel.jpg" data-background-size="40%">
-<h2><span data-auto-animate="true">Be part of R-ladies Melbourne</span></h2>
-<div class="box fragment" width="100%">
-<ul>
-<li class="fragment"><p><span class="rladies-purple">Join the committee: make decisions about the future of R-Ladies Melbourne</span></p></li>
-<li class="fragment"><p><span class="rladies-purple">You must identify as a woman or other underrepresented genders</span></p></li>
-</ul>
-</div>
-<div class="box fragment" width="100%">
-<ul>
-<li class="fragment"><p><span class="rladies-purple">Join the Volunteer team: to help us with setting up successful events</span></p></li>
-<li class="fragment"><p><span class="rladies-purple">Open to everyone so you can show your support to R-Ladies Melbourne</span></p></li>
-</ul>
-</div>
-</section>
-<section>
-<section id="sex-vs-gender-in-survey" class="title-slide slide level1 center" data-background="images/gender-div.jpg" data-background-size="100%">
-<h1><span class="monash-white">Sex vs Gender in survey</span></h1>
-
-</section>
-<section id="sex-vs-gender-in-survey-1" class="slide level2">
-<h2><span data-auto-animate="true">Sex vs Gender in survey</span></h2>
 <div class="columns">
-<div class="column box" style="width:100%;">
+<div class="column" style="width:50%;">
 <div class="fragment">
-<ul>
-<li class="fragment"><strong>Sex</strong> refers to the chromosomal, gonadal and anatomical characteristics associated with biological sex. Individuals may have a range of circumstances or undergo a variety of treatments that make it difficult to define a true biological sex.</li>
-</ul>
+<p><img data-src="images/numberofusers.jpg"></p>
 </div>
-</div><div class="column box" style="width:100%;">
+</div><div class="column" style="width:50%;">
 <div class="fragment">
-<ul>
-<li class="fragment"><strong>Gender</strong> is part of a person’s social and personal identity. It refers to each person’s deeply felt internal and individual identity and the way a person presents and is recognised within the community.</li>
-</ul>
-</div>
-</div><div class="column box" style="width:100%;">
-<div class="fragment">
-<ul>
-<li class="fragment">A person’s sex and gender may not necessarily be the same</li>
-</ul>
+<p><img data-src="images/ratings.jpg"></p>
 </div>
 </div>
 </div>
-<div class="footer">
-<p><a href="https://www.monash.edu/__data/assets/pdf_file/0005/1778378/capturing-gender-data-inclusively-2.pdf">CAPTURING GENDER DATA INCLUSIVELY - Monash</a></p>
-</div>
+<aside class="notes">
+<p>We have encouraged units coordinator to use our LearnR websites during orientation week where students can get a head start on R basics. We can see a decline of users toward the end of the semester. This is align with what we expected. The demand of leaernR websites is high for students at the start of the semester where we expect them to use it for self-learning. Where later in the semester, they are less depended on learnR website. The amount of time that they spend on learnR is the amount of time that tutors saved in classroom teaching the basics of R.</p>
+<p>With the survey we sent out to students for feedback, we got 8 out of 10 for satisfaction on the effectiveness of this resources.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="sex-vs-gender-in-survey-2" class="slide level2">
-<h2>Sex vs Gender in survey</h2>
-<ul class="fa-ul">
-<li class="">
-<span class="fa-li"><i class="fa-regular fa-square"></i></span> Woman
-</li>
-<li class="">
-<span class="fa-li"><i class="fa-regular fa-square"></i></span> Man
-</li>
-<li class="">
-<span class="fa-li"><i class="fa-regular fa-square"></i></span> Non-binary / gender diverse
-</li>
-<li class="">
-<span class="fa-li"><i class="fa-regular fa-square"></i></span> My gender identity isn’t listed. I identify as:
-</li>
-<li class="">
-<span class="fa-li"><i class="fa-regular fa-square"></i></span> Prefer not to say
-</li>
-</ul>
-</section>
-<section id="sex-vs-gender-in-survey-3" class="slide level2">
-<h2>Sex vs Gender in survey</h2>
-<ul class="fa-ul">
-<li class="">
-<span class="fa-li"><i class="fa-regular fa-square-check"></i></span> Woman
-</li>
-<li class="">
-<span class="fa-li"><i class="fa-regular fa-square"></i></span> Man
-</li>
-<li class="">
-<span class="fa-li"><i class="fa-regular fa-square-check"></i></span> Non-binary / gender diverse
-</li>
-<li class="">
-<span class="fa-li"><i class="fa-regular fa-square"></i></span> My gender identity isn’t listed. I identify as:
-</li>
-<li class="">
-<span class="fa-li"><i class="fa-regular fa-square"></i></span> Prefer not to say
-</li>
-</ul>
-</section></section>
-<section id="r-ladies" class="title-slide slide level1 center">
-<h1><span class="rladies-red">R</span><span class="rladies-purple">-</span><span class="rladies-orange">L</span><span class="rladies-yellow">a</span><span class="rladies-green">d</span><span class="rladies-blue">i</span><span class="rladies-indigo">e</span><span class="rladies-violet">s</span></h1>
-<ul class="fa-ul">
-<li class="">
-<span class="fa-li"><i class="fa-solid fa-rainbow"></i></span> R-LADIES IS A WORLDWIDE ORGANIZATION WHOSE MISSION IS TO PROMOTE GENDER DIVERSITY IN THE R COMMUNITY.
-</li>
-<li class="">
-<span class="fa-li"><i class="fa-solid fa-rainbow"></i></span> The R community suffers from an underrepresentation of minority genders (including but not limited to cis/trans women, trans men, non-binary, genderqueer, agender) in every role and area of participation, whether as leaders, package developers, conference speakers, conference participants, educators, or users.
-</li>
-</ul>
-</section>
+<section id="section" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title"></h2>
 
-<section>
-<section id="r-ladies-1" class="title-slide slide level1 center">
-<h1><span class="rladies-red">R</span><span class="rladies-purple">-</span><span class="rladies-orange">L</span><span class="rladies-yellow">a</span><span class="rladies-green">d</span><span class="rladies-blue">i</span><span class="rladies-indigo">e</span><span class="rladies-violet">s</span> <span class="rladies-purple">?</span></h1>
-<ul class="fa-ul">
-<li class="">
-<span class="fa-li"><i class="fa-solid fa-ban"></i></span> Barrier?
-</li>
-<li class="">
-<span class="fa-li"><i class="fa-solid fa-rainbow"></i></span> How can we be more inclusive for minority gender?
-</li>
-</ul>
+<img data-src="images/bg_titlepage.jpeg" class="r-stretch"><aside class="notes">
+<p>We want to teach students the skills sets of being able to learn beyond the coursework. So they can continue learning for a life time.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="reference" class="slide level2">
-<h2>Reference</h2>
-<ul>
-<li class="fragment"><p>The slides are made using <a href="https://quarto.org/">Quarto</a> with <a href="https://github.com/emitanaka/talks">Emi Tanaka’s</a> CSS design.</p></li>
-<li class="fragment"><p>Slides can be found at <a href="https://github.com/DanyangDai/brownbag_2022_10_11">DanyangDai/brownbag_2022_10_11</a></p></li>
-<li class="fragment"><p>More information about gender data collection: <a href="https://www.monash.edu/__data/assets/pdf_file/0005/1778378/capturing-gender-data-inclusively-2.pdf">CAPTURING GENDER DATA INCLUSIVELY - Monash</a></p></li>
-</ul>
-</section></section>
-<section id="thank-you" class="title-slide slide level1 center">
-<h1><span class="rladies-red">T</span><span class="rladies-purple">H</span><span class="rladies-orange">A</span><span class="rladies-yellow">N</span><span class="rladies-green">K</span> <span class="rladies-blue">Y</span><span class="rladies-indigo">O</span><span class="rladies-violet">U</span><span class="rladies-purple">!</span></h1>
+<section id="acknowledgement" class="slide level2">
+<h2><span data-auto-animate="true">Acknowledgement</span></h2>
+<p><br></p>
+<p style="text-align: center;">
+Dr.&nbsp;Emi Tanaka
+</p>
+<p><br></p>
+<p style="text-align: center;">
+Mitchell O’Hara-Wild
+</p>
+<br>
+<p style="text-align: center;">
+Dr.&nbsp;Jessica Leung
+</p>
 
 <img src="images/logos.jpeg" class="slide-logo r-stretch"><div class="footer footer-default">
 
 </div>
 </section>
-
 
     </div>
   </div>

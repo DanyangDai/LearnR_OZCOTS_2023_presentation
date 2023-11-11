@@ -30,6 +30,7 @@ execute:
 
 ```{r setup, include = FALSE}
 library(tidyverse)
+library(emo)
 
 rotating_text <- function(x, align = "center") {
   glue::glue('
@@ -79,7 +80,7 @@ Hello everybody. Thank you for coming today. I am a first year PhD student at th
 ## [Has this happened to you before?]{auto-animate="true"} 
 
 
-Ideally, we could like to teach students read in a dataset and have a look at the strucure of the data.
+Ideally, we could like to teach students read in a dataset and have a look at the structure of the data.
 
 ```{r, eval = TRUE}
 library(tidyverse)
@@ -110,31 +111,178 @@ In reality:
 
 
 ::: notes
-I am sure many of the statistics and data sciences educators had experienced something similar before. When teaching first year data analysis and statistics units, we sometime unwillingly spent way to much time helping students with their coding problems and sometime event just installation issues. These precious time were taken away from actual courses materials delivering.  
+I am sure many of the statistics and data sciences educators had experienced something similar before. When teaching first year data analysis and statistics units, we sometime unwillingly spent way to much time helping students with their coding problems and sometime event just installation issues. These precious time were taken away from actual courses materials delivering. The current mode of teaching requires tutors to come to every students and help them with their individual bugs. If we are lucky, there will be some students who can help each other out. 
 
 :::
 ------------------------------------------------------------------------
 
-## [So what do we do?]{auto-animate="true"}
+<br>
+
+<p class = "big", style="text-align: center;"><span style="color: red;"> errors</span></p>
+
+
+<br>
+
+<p class = "big", style="text-align: center;">`r emo::ji("angry")``r emo::ji("explode")` `r emo::ji("exclamation")`</p>
+
+
+
+::: notes
+
+As the statistical concepts are the focus of the subject, during lectures and tutorials, we normally implement an error-free classroom as we just cannot afford to spend too much time on teaching students debug.  Students tend to get frustrated when they in counter error messages.
+
+So how should we manage this inefficient way of education mode?
+
+:::
+
+------------------------------------------------------------------------
+
+
+## [It is ok to make mistakes]{auto-animate="true"}
+
+
+::: fragment
+
+- "Great teachers make it safe to be wrong. They build a Culture of Error that respects, normalizes,and values learning from errors." by Doug Lemov and Norman Atkins from Teach Like a Champion 2.0.  
+
+- Studies^[Dalbey, J., and Linn, M. (1985),Deek, F. P., and McHugh, J. A. (1998), Hoffman & Angelo F. Elmi (2021)] have suggested that students learn more during debug session compared to error-free lecture. 
+
+:::
+
+::: notes
+
+From the Book teach like a Champion, it tells us that educators should make students to feel comfortable of making mistakes. And that includes normalizing error codes. 
+
+This valuable lesson of debugging wasn't incorporated in our daily teaching. Even when the lectures and tutorials are all being delivered in error-free way. We have carefully designed the materials and we made sure that there isn't any errors within our materials. 
+
+However, as much as we want it to be an error free environment, it cannot be true. As shown before, students would always encounter some error codes. 
+
+:::
+
+
+## [Understanding error code]{auto-animate="true"}
 
 ::: columns
 ::: {.column width="50%"}
 
 ::: fragment
-```{=html}
-<iframe width="780" height="500" src="https://learnr.numbat.space" title="LearnR"></iframe>
-```
+![](images/read_csv_error4.png)
+![](images/syntax_error1.png)
+![](images/read_csv_error1.png)
 :::
 :::
 
 ::: {.column width="50%"}
 ::: fragment
-We present you with a self-paced R learning website. This website is designed for students with no experience in R and RStudio. 
+
+- Check Spelling 
+- Syntax missing `(` or `)` or `{` or `}` ect. 
+- Loading required packages
+- Search the messages 
+- Turn it on and off again `r emo::ji("angel")`
+
+:::
+:::
+:::
+
+::: notes
+
+There are some basics self-checking techniques that we can teach students to help themselves. For example, it would be simple typos somewhere in your function or the path you supplied. Another common mistakes is syntax errors. This sometime can be easy and difficult to spot depending on how long your function is. A common on that I sometime make is using pips for ggplot where it should be plus sign. If it comes to a relatively complex question, goggling is the next step we recommend students to do. 
+
+:::
+
+## [It is okay to ask question, but where `r emo::ji("confused")`]{auto-animate="true"}
+
+::: fragment
+
+- Unit's Moodle page 
+- [Stack Overflow](https://stackoverflow.com/questions/tagged/rstudio)
+- [Posit Community](https://community.rstudio.com)
+- [Github](https://github.com)
+
+::: notes
+
+In additional on encouraging students to debug themselves, we also recommend students to help each other out by posting their questions on Moodle pages. This is also a good practice for students to normalizing making mistakes. When you see other people having the same problem, you know that you are not the only one. You are all in this together. Students will also be able to build their knowledge sets and confident by helping others out. There are other public channels where you can seek for help such us Stack Overflow, Posit Community and Github if you have any specific questions that you want to direct it to the package authors. 
+
+:::
+
+:::
+
+## [It is okay to ask question, but how `r emo::ji("confused")`]{auto-animate="true"}
+
+::: columns
+::: {.column width="30%"}
+
+::: fragment
+
+### <span style="color: red;"> QUESTION</span>  `r emo::ji("no")`
+
+:::
+:::
+
+::: {.column width="70%"}
+::: fragment
+
+### Minimal reproducible examples 
+
+- Does your error relates to dataset? Provide minimal datasets 
+
+- Provide minimal code. Not just a screenshot.
+
+- Provide session information using `sessioninfo::session_info()`
+
+- Using the `reprex` package for producing examples 
+
+:::
+:::
+:::
+
+::: notes
+
+As a tutor, one big part of my job is to answer students' questions on Moodle pages. And I do get email notifications with their questions. 
+
+I often see this heading: Question. This type of heading I found to be meaning less. When you post on the question page, of course I know it is a question. And when I click into the question, there is normally a screenshot of the error code and then asking why and how to fix it.
+
+This sometimes become frustrated for me because I need to explain that I couldn't really help you with just a screenshot of your error messages or just error codes. I need more information to understand this problem. After many times of this, we decide that it is important for students to understand minimal reproducible examples. 
+
+This is an efficient way to help students learning how to debug. During the process of creating this minimal reproducible examples, sometime the problem fix themselves. It also improved the communication between students and tutors. Instead of going back and forth on what is the problem, we are able to understand the problem and provide solutions. 
+
+This way, we are also preparing our students for their future study and work. Because they are not only posting their questions at Moodle but also on public channels such us Stack Overflows.
+Learning how to do create minimal reproducible examples is an transferable skills for working at pip lines where you need to be able to clearly states what is the problem. 
+
+:::
+
+
+## [Saving more time in classroom]{auto-animate="true"}
+
+::: fragment
+```{=html}
+<iframe width="1000" height="500" src="https://learnr.numbat.space/chapter3#4" title="Minimal reproducibke examples"></iframe>
+```
+:::
+
+::: notes
+
+All the procedures mentioned above have been packaged up into our learnR website.
+
+:::
+
+## [More to learnR website]{auto-animate="true"}
+
+
+
+::: fragment
+```{=html}
+<iframe width="1000" height="500" src="https://learnr.numbat.space" title="LearnR"></iframe>
+```
+:::
+
+
+
+::: fragment
 
 [https://learnr.numbat.space](https://learnr.numbat.space)
 
-:::
-:::
 :::
 
 ::: notes
@@ -146,142 +294,55 @@ This project aims to help students with no programming experience to learn how t
 :::
 
 ## [Did it work?]{auto-animate="true"}
-
-::: fragment
-
-Need some evidence here. 
-:::
-
-::: notes
-
-:::
-
-## [We have the infurstrure setup and what's next?]{auto-animate="true"}
-
-::: fragment
-
-- "Great teachers make it safe to be wrong. They build a Culture of Error that respects, normalizes,and values learning from errors." by Doug Lemov and Norman Atkins from Teach Like a Champion 2.0.  
-
-- Studies^[Dalbey, J., and Linn, M. (1985),Deek, F. P., and McHugh, J. A. (1998), Hoffman & Angelo F. Elmi (2021)] have suggested that students learn more during debug session compared to error-free lecture. 
-
-
-::: notes
-
-As the statistical concepts are the focus of the subject, during lectures and tutorials, we normally implement an error-free classroom as we just cannot afford to spend too much time on teaching students debug. This valuable lesson of debugging wasn't incorporated in our daily teaching. As much as we want it to be an error free environment, it cannot be true as shown before. 
-
-:::
-:::
-
-## [So how to teach students ]{auto-animate="true"}
-
-::: fragment
-![Zoom events - 2020](images/online.jpg){width="750px"}
-:::
-
-::: notes
-I joined R-Laides Melburne hen Covid happened. For amost two years, we could not have any in person event. I didn't get to meet the rest of the organisors for amost two years. But it didn't stop us developing our R skills. We continue to give women works in data science and statisticas opportunity to share their R knowledge with us. With zoom, we are able to have oversea attendees joining us and it really brought all the R-ladies around the world together.
-:::
-
-## [What do we do?]{auto-animate="true"}
-
-::: fragment
-![Back to in person - Di 2022](images/di_2.jpg){width="750px"}
-:::
-
-::: notes
-As covid restrictions easing, we are able to have more in person events! Di continue to be a huge suppotor of R-ladies melbourne! Everyone found the talk on The workflow of tidy data, constructing plots and making data-driven decisions super beneficial.
-
-we are called R-ladies but we do encourage other gender to attend our events.
-:::
-
-## [And more...]{auto-animate="true"}
-
-::: fragment
--   [Past event: **75**]{.rladies-purple}
-:::
-
-::: fragment
--   [Total members: **2226**]{.rladies-purple}
-:::
-
-::: fragment
-![It Takes a Spark!](images/ittakes.jpeg){length="500px" width="650px"}
-:::
-
-::: notes
-As covid restrictions easing, we are able to have more in person events! Di continue to be a huge suppotor of R-ladies melbourne! Everyone found the talk on The workflow of tidy data, constructing plots and making data-driven decisions super beneficial.
-
-we are called R-ladies but we do encourage other gender to attend our events.
-:::
-
-## [Come to our next event this Thursday!]{auto-animate="true"}
-
-<center><img src="images/workflowr.jpeg" width="70%" style="border:3px solid black;"/></center>
-
-## [Be part of R-ladies Melbourne]{auto-animate="true"} {background-image="images/rladies_mel.jpg" background-size="40%"}
-
-::: {.box .fragment width="100%"}
--   [Join the committee: make decisions about the future of R-Ladies Melbourne]{.rladies-purple}
-
--   [You must identify as a woman or other underrepresented genders]{.rladies-purple}
-:::
-
-::: {.box .fragment width="100%"}
--   [Join the Volunteer team: to help us with setting up successful events]{.rladies-purple}
-
--   [Open to everyone so you can show your support to R-Ladies Melbourne]{.rladies-purple}
-:::
-
-# [Sex vs Gender in survey]{.monash-white} {background="images/gender-div.jpg" background-size="100%"}
-
-## [Sex vs Gender in survey]{auto-animate="true"}
-
 ::: columns
-::: {.column .box width="100%"}
+::: {.column width="50%"}
 ::: fragment
--   **Sex** refers to the chromosomal, gonadal and anatomical characteristics associated with biological sex. Individuals may have a range of circumstances or undergo a variety of treatments that make it difficult to define a true biological sex.
+![](images/numberofusers.jpg)
 :::
 :::
 
-::: {.column .box width="100%"}
+::: {.column width="50%"}
 ::: fragment
--   **Gender** is part of a person's social and personal identity. It refers to each person's deeply felt internal and individual identity and the way a person presents and is recognised within the community.
-:::
-:::
+![](images/ratings.jpg)
 
-::: {.column .box width="100%"}
-::: fragment
--   A person's sex and gender may not necessarily be the same
 :::
 :::
 :::
 
-::: footer
-[CAPTURING GENDER DATA INCLUSIVELY - Monash](https://www.monash.edu/__data/assets/pdf_file/0005/1778378/capturing-gender-data-inclusively-2.pdf)
+::: notes
+
+We have encouraged units coordinator to use our LearnR websites during orientation week where students can get a head start on R basics. We can see a decline of users toward the end of the semester. This is align with what we expected. The demand of leaernR websites is high for students at the start of the semester where we expect them to use it for self-learning. Where later in the semester, they are less depended on learnR website. The amount of time that they spend on learnR is the amount of time that tutors saved in classroom teaching the basics of R. 
+
+
+With the survey we sent out to students for feedback, we got 8 out of 10 for satisfaction on the effectiveness of this resources.
+
 :::
 
-## Sex vs Gender in survey
+## {auto-animate="true"}
 
-`r fa_list(c("fa-regular fa-square" = "Woman","fa-regular fa-square" = "Man","fa-regular fa-square" = "Non-binary / gender diverse","fa-regular fa-square" = "My gender identity isn't listed. I identify as: ","fa-regular fa-square" = "Prefer not to say"))`
 
-## Sex vs Gender in survey
+![](images/bg_titlepage.jpeg)
 
-`r fa_list(c("fa-regular fa-square-check" = "Woman","fa-regular fa-square" = "Man","fa-regular fa-square-check" = "Non-binary / gender diverse","fa-regular fa-square" = "My gender identity isn't listed. I identify as: ","fa-regular fa-square" = "Prefer not to say"))`
+::: notes
 
-# [R]{.rladies-red}[-]{.rladies-purple}[L]{.rladies-orange}[a]{.rladies-yellow}[d]{.rladies-green}[i]{.rladies-blue}[e]{.rladies-indigo}[s]{.rladies-violet}
+We want to teach students the skills sets of being able to learn beyond the coursework. So they can continue learning for a life time. 
 
-`r fa_list(c("fa-solid fa-rainbow" = "R-LADIES IS A WORLDWIDE ORGANIZATION WHOSE MISSION IS TO PROMOTE GENDER DIVERSITY IN THE R COMMUNITY.", "fa-solid fa-rainbow" = "The R community suffers from an underrepresentation of minority genders (including but not limited to cis/trans women, trans men, non-binary, genderqueer, agender) in every role and area of participation, whether as leaders, package developers, conference speakers, conference participants, educators, or users."))`
+:::
 
-# [R]{.rladies-red}[-]{.rladies-purple}[L]{.rladies-orange}[a]{.rladies-yellow}[d]{.rladies-green}[i]{.rladies-blue}[e]{.rladies-indigo}[s]{.rladies-violet} [?]{.rladies-purple}
+## [Acknowledgement]{auto-animate="true"}
 
-`r fa_list(c("fa-solid fa-ban" = "Barrier?", "fa-solid fa-rainbow" = "How can we be more inclusive for minority gender?"))`
 
-## Reference
+<br>
 
--   The slides are made using [Quarto](https://quarto.org/) with [Emi Tanaka's](https://github.com/emitanaka/talks) CSS design.
+<p style="text-align: center;">Dr. Emi Tanaka</p>
 
--   Slides can be found at [DanyangDai/brownbag_2022_10_11](https://github.com/DanyangDai/brownbag_2022_10_11)
+<br>
 
--   More information about gender data collection: [CAPTURING GENDER DATA INCLUSIVELY - Monash](https://www.monash.edu/__data/assets/pdf_file/0005/1778378/capturing-gender-data-inclusively-2.pdf)
+<p style="text-align: center;">Mitchell O'Hara-Wild </p>
 
-# [T]{.rladies-red}[H]{.rladies-purple}[A]{.rladies-orange}[N]{.rladies-yellow}[K]{.rladies-green} [Y]{.rladies-blue}[O]{.rladies-indigo}[U]{.rladies-violet}[!]{.rladies-purple}
+<br>
+<p style="text-align: center;">Dr. Jessica Leung</p>
+
+
+
+
