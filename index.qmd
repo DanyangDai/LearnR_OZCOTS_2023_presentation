@@ -60,25 +60,20 @@ fa_list <- function(x, incremental = FALSE) {
 
 👩🏻‍💻 [`r rmarkdown::metadata$author` \@ `r rmarkdown::metadata$institute`]{.author}
 
-`r rotating_text(c("Monash University", "Mitchell O'Hara-Wild", 'Australia National University', 'Emi Tanaka'))`
+`r rotating_text(c("Mitchell O'Hara-Wild @ Monash University", "<i class='fas fa-envelope'></i> danyang.dai@uq.edu.au", 'Emi Tanaka @ Australia National University', "<i class='fas fa-globe'></i> https://dai.netlify.app/"))`
 :::
-
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
-:::{.absolute .top-0 .rladies-purple .w-100 .font-small}
+::: {.absolute .top-0 .rladies-purple .w-100 .font-small}
 [`r rmarkdown::metadata$date`]{.rladies-purple} [`r rmarkdown::metadata$host`]{.rladies-purple}
 :::
 
 ::: notes
-
-Hello everybody. Thank you for coming today. I am a first year PhD student at the University of Queensland in the faculty of Medicine. Before I joined UQ, I was working at Monash in the department of Econometrics and Business Statistics and public health department. This body of work is driven by my working experience as statistics and econometrics tutor along with my colleague Emi Tanaka and Mitchell O'Hara-Wild. 
+Hello everybody. Thank you for coming today. I am a first year PhD student at the University of Queensland in the faculty of Medicine. Before I joined UQ, I was working at Monash in the department of Econometrics and Business Statistics and public health department. This body of work is driven by my working experience as statistics and econometrics tutor along with my colleagues Emi Tanaka and Mitchell O'Hara-Wild.
 :::
 
-
-
-## [Has this happened to you before?]{auto-animate="true"} 
-
+## [Has this happened to you before?]{auto-animate="true"}
 
 Ideally, we could like to teach students read in a dataset and have a look at the structure of the data.
 
@@ -88,170 +83,136 @@ crabs <- read_csv("data/australian-crabs.csv")
 str(crabs)
 ```
 
-## [Has this happened to you before?]{auto-animate="true"} 
+## [Has this happened to you before?]{auto-animate="true"}
 
-In reality:  
+In reality:
 
-
-::: {.incremental}
-
-::: {.r-stack}
+::: incremental
+::: r-stack
 ![](images/read_csv_error1.png){.fragment}
 
 ![](images/read_csv_error2.png){.fragment width="1000"}
 
 ![](images/read_csv_error3.png){.fragment width="1000"}
-
 :::
 
-
-- And many more unexpected <span style="color: red;"> errors</span>! 
-
+-   And many more unexpected [ errors]{style="color: red;"}!
 :::
-
 
 ::: notes
-I am sure many of the statistics and data sciences educators had experienced something similar before. When teaching first year data analysis and statistics units, we sometime unwillingly spent way to much time helping students with their coding problems and sometime event just installation issues. These precious time were taken away from actual courses materials delivering. The current mode of teaching requires tutors to come to every students and help them with their individual bugs. If we are lucky, there will be some students who can help each other out. 
-
+I am sure many of the statistics and data sciences educators had experienced something similar before. When teaching first year data analysis and statistics units, we sometime unwillingly spent way too much time helping students with their coding problems and sometime even just installation issues. These precious time were taken away from actual courses materials delivering. The current mode of teaching requires tutors to come to every students and help them with their individual bugs. If we are lucky, there will be some students who can help each other out.
 :::
+
 ------------------------------------------------------------------------
 
 <br>
 
+```{=html}
 <p class = "big", style="text-align: center;"><span style="color: red;"> errors</span></p>
-
-
+```
 <br>
 
+```{=html}
 <p class = "big", style="text-align: center;">`r emo::ji("angry")``r emo::ji("explode")` `r emo::ji("exclamation")`</p>
-
-
-
+```
 ::: notes
+As the statistical concepts are the central focus of the subject, during lectures and tutorials, we normally present an error-free code in classroom. We just cannot afford to spend too much time teaching students how to debug. Students tend to get frustrated when they in encounter error messages.
 
-As the statistical concepts are the focus of the subject, during lectures and tutorials, we normally implement an error-free classroom as we just cannot afford to spend too much time on teaching students debug.  Students tend to get frustrated when they in counter error messages.
-
-So how should we manage this inefficient way of education mode?
-
+So how should we manage this in education?
 :::
 
 ------------------------------------------------------------------------
-
 
 ## [It is ok to make mistakes]{auto-animate="true"}
 
-
 ::: fragment
+-   "Great teachers make it safe to be wrong. They build a Culture of Error that respects, normalizes,and values learning from errors." by Doug Lemov and Norman Atkins from Teach Like a Champion 2.0.
 
-- "Great teachers make it safe to be wrong. They build a Culture of Error that respects, normalizes,and values learning from errors." by Doug Lemov and Norman Atkins from Teach Like a Champion 2.0.  
-
-- Studies^[Dalbey, J., and Linn, M. (1985),Deek, F. P., and McHugh, J. A. (1998), Hoffman & Angelo F. Elmi (2021)] have suggested that students learn more during debug session compared to error-free lecture. 
-
+-   Studies[^1] have suggested that students learn more during debug session compared to error-free lecture.
 :::
+
+[^1]: Dalbey, J., and Linn, M. (1985),Deek, F. P., and McHugh, J. A. (1998), Hoffman & Angelo F. Elmi (2021)
 
 ::: notes
+From the book Teach like a Champion, it tells us that educators should make students to feel comfortable of making mistakes. And that includes normalizing error codes.
 
-From the Book teach like a Champion, it tells us that educators should make students to feel comfortable of making mistakes. And that includes normalizing error codes. 
+This valuable lesson of debugging wasn't incorporated in our daily teaching. Even when the lectures and tutorials are all being delivered in an error-free way. We have carefully designed the materials and we made sure that there isn't any errors within our materials.
 
-This valuable lesson of debugging wasn't incorporated in our daily teaching. Even when the lectures and tutorials are all being delivered in error-free way. We have carefully designed the materials and we made sure that there isn't any errors within our materials. 
-
-However, as much as we want it to be an error free environment, it cannot be true. As shown before, students would always encounter some error codes. 
-
+However, as much as we want it to be an error free environment, it cannot be true. As shown before, students would always encounter some error codes.
 :::
-
 
 ## [Understanding error code]{auto-animate="true"}
 
 ::: columns
 ::: {.column width="50%"}
-
 ::: fragment
-![](images/read_csv_error4.png)
-![](images/syntax_error1.png)
-![](images/read_csv_error1.png)
+![](images/read_csv_error4.png) ![](images/syntax_error1.png) ![](images/read_csv_error1.png)
 :::
 :::
 
 ::: {.column width="50%"}
 ::: fragment
-
-- Check Spelling 
-- Syntax missing `(` or `)` or `{` or `}` ect. 
-- Loading required packages
-- Search the messages 
-- Turn it on and off again `r emo::ji("angel")`
-
+-   Check Spelling
+-   Syntax missing `(` or `)` or `{` or `}` ect.
+-   Loading required packages
+-   Search the messages
+-   Turn it on and off again `r emo::ji("angel")`
 :::
 :::
 :::
 
 ::: notes
-
-There are some basics self-checking techniques that we can teach students to help themselves. For example, it would be simple typos somewhere in your function or the path you supplied. Another common mistakes is syntax errors. This sometime can be easy and difficult to spot depending on how long your function is. A common on that I sometime make is using pips for ggplot where it should be plus sign. If it comes to a relatively complex question, goggling is the next step we recommend students to do. 
-
+There are some basic self-checking techniques that we can teach students to help themselves. For example, it would be simple typos somewhere in your function or the path you supplied. Another common mistakes is syntax errors. This sometime can be easy and difficult to spot depending on how long your function is. A common on that I sometime make is using pips for ggplot where it should be plus sign. If it comes to a relatively complex question, goggling is the next step we recommend students to do.
 :::
 
 ## [It is okay to ask question, but where `r emo::ji("confused")`]{auto-animate="true"}
 
 ::: fragment
-
-- Unit's Moodle page 
-- [Stack Overflow](https://stackoverflow.com/questions/tagged/rstudio)
-- [Posit Community](https://community.rstudio.com)
-- [Github](https://github.com)
+-   Unit's learning mangement platform (e.g. Moodle) page
+-   [Stack Overflow](https://stackoverflow.com/questions/tagged/rstudio)
+-   [Posit Community](https://community.rstudio.com)
+-   [Github issues](https://github.com)
 
 ::: notes
-
-In additional on encouraging students to debug themselves, we also recommend students to help each other out by posting their questions on Moodle pages. This is also a good practice for students to normalizing making mistakes. When you see other people having the same problem, you know that you are not the only one. You are all in this together. Students will also be able to build their knowledge sets and confident by helping others out. There are other public channels where you can seek for help such us Stack Overflow, Posit Community and Github if you have any specific questions that you want to direct it to the package authors. 
-
+In additional on encouraging students to debug themselves, we also recommend students to help each other out by posting their questions on Moodle pages. This is also a good practice for students to normalizing making mistakes. When you see other people having the same problem, you know that you are not the only one. You are all in this together. Students will also be able to build their knowledge sets and confident by helping others out. There are other public channels where you can seek for help such us Stack Overflow, Posit Community and Github issues if you have any specific questions that you want to direct it to the package authors.
 :::
-
 :::
 
 ## [It is okay to ask question, but how `r emo::ji("confused")`]{auto-animate="true"}
 
 ::: columns
 ::: {.column width="30%"}
-
 ::: fragment
-
-### <span style="color: red;"> QUESTION</span>  `r emo::ji("no")`
-
+### [ QUESTION]{style="color: red;"} `r emo::ji("no")`
 :::
 :::
 
 ::: {.column width="70%"}
 ::: fragment
+### Minimal reproducible examples
 
-### Minimal reproducible examples 
+-   Does your error relates to dataset? Provide minimal datasets
 
-- Does your error relates to dataset? Provide minimal datasets 
+-   Provide minimal code. Not just a screenshot.
 
-- Provide minimal code. Not just a screenshot.
+-   Provide session information using `sessioninfo::session_info()`
 
-- Provide session information using `sessioninfo::session_info()`
-
-- Using the `reprex` package for producing examples 
-
+-   Using the `reprex` package for producing examples
 :::
 :::
 :::
 
 ::: notes
-
-As a tutor, one big part of my job is to answer students' questions on Moodle pages. And I do get email notifications with their questions. 
+As a tutor, one big part of my job is to answer students' questions on Moodle pages. And I do get email notifications with their questions.
 
 I often see this heading: Question. This type of heading I found to be meaning less. When you post on the question page, of course I know it is a question. And when I click into the question, there is normally a screenshot of the error code and then asking why and how to fix it.
 
-This sometimes become frustrated for me because I need to explain that I couldn't really help you with just a screenshot of your error messages or just error codes. I need more information to understand this problem. After many times of this, we decide that it is important for students to understand minimal reproducible examples. 
+This sometimes become frustrated for me because I need to explain that I couldn't really help you with just a screenshot of your error messages or just error codes. I need more information to understand this problem. After many times of this, we decide that it is important for students to understand minimal reproducible examples.
 
-This is an efficient way to help students learning how to debug. During the process of creating this minimal reproducible examples, sometime the problem fix themselves. It also improved the communication between students and tutors. Instead of going back and forth on what is the problem, we are able to understand the problem and provide solutions. 
+This is an efficient way to help students learning how to debug. During the process of creating this minimal reproducible examples, sometime the problem fix themselves. It also improved the communication between students and tutors. Instead of going back and forth on what is the problem, we are able to understand the problem and provide solutions.
 
-This way, we are also preparing our students for their future study and work. Because they are not only posting their questions at Moodle but also on public channels such us Stack Overflows.
-Learning how to do create minimal reproducible examples is an transferable skills for working at pip lines where you need to be able to clearly states what is the problem. 
-
+This way, we are also preparing our students for their future study and work. Because they are not only posting their questions at Moodle but also on public channels such us Stack Overflows. Learning how to do create minimal reproducible examples is an transferable skills for working at pip lines where you need to be able to clearly states what is the problem.
 :::
-
 
 ## [Saving more time in classroom]{auto-animate="true"}
 
@@ -262,14 +223,10 @@ Learning how to do create minimal reproducible examples is an transferable skill
 :::
 
 ::: notes
-
-All the procedures mentioned above have been packaged up into our learnR website.
-
+All the procedures mentioned above have been packaged up into our LearnR website.
 :::
 
-## [More to learnR website]{auto-animate="true"}
-
-
+## [More to LearnR website]{auto-animate="true"}
 
 ::: fragment
 ```{=html}
@@ -277,72 +234,67 @@ All the procedures mentioned above have been packaged up into our learnR website
 ```
 :::
 
-
-
 ::: fragment
-
-[https://learnr.numbat.space](https://learnr.numbat.space)
-
+<i class='fas fa-globe'></i> <https://learnr.numbat.space>
 :::
 
 ::: notes
+This is an interactive introduction to data analysis with R. There are 9 chapters ordered from teaching students who to install R and RStudio to more advanced R programming skills such as data visualization and regressions.
 
-This is an interactive introduction to data analysis with R. There are 9 chapters ordered from teaching students who to install R and RStudio to more advanced R programming skills such as data visualization and regressions. 
-
-This project aims to help students with no programming experience to learn how to use RStudio at their own time and at their own pace. 
-
+This project aims to help students with no programming experience to learn how to use RStudio at their own time and at their own pace.
 :::
 
 ## [Did it work?]{auto-animate="true"}
-::: columns
-::: {.column width="50%"}
-::: fragment
-![](images/numberofusers.jpg)
-:::
-:::
 
-::: {.column width="50%"}
-::: fragment
+
+![](images/numberofusers.jpg)
+
+## {}
+
+![](images/engagement.jpg)
+
+## {}
+
 ![](images/ratings.jpg)
 
-:::
-:::
-:::
-
 ::: notes
+We have encouraged units coordinator to use our LearnR websites during orientation week where students can get a head start on R basics. We can see a decline of users toward the end of the semester. This is align with what we expected. The demand of LearnR websites is high for students at the start of the semester where we expect them to use it for self-learning. Where later in the semester, they are less depended on LearnR website. The amount of time that they spend on learnR is the amount of time that tutors saved in classroom teaching the basics of R.
 
-We have encouraged units coordinator to use our LearnR websites during orientation week where students can get a head start on R basics. We can see a decline of users toward the end of the semester. This is align with what we expected. The demand of leaernR websites is high for students at the start of the semester where we expect them to use it for self-learning. Where later in the semester, they are less depended on learnR website. The amount of time that they spend on learnR is the amount of time that tutors saved in classroom teaching the basics of R. 
-
-
-With the survey we sent out to students for feedback, we got 8 out of 10 for satisfaction on the effectiveness of this resources.
-
+With the survey we sent out to students for feedback, we got 8 out of 10 for satisfaction on the effectiveness of this resources. We have a low rating here, but it turns out that when we read the comment, it wasn't about the LearnR website but about their course.
 :::
 
-## {auto-animate="true"}
-
+##  {auto-animate="true"}
 
 ![](images/bg_titlepage.jpeg)
 
 ::: notes
+We want to teach students the skills sets of being able to learn beyond the coursework. So they can continue learning for a life time.
 
-We want to teach students the skills sets of being able to learn beyond the coursework. So they can continue learning for a life time. 
-
+We provide an online learning tool that include a chapter about equipping students with how to ask for help and troubleshoot.
 :::
 
 ## [Acknowledgement]{auto-animate="true"}
 
+<br>
+
+<p style="text-align: center;">
+
+Dr. Emi Tanaka
+
+</p>
 
 <br>
 
-<p style="text-align: center;">Dr. Emi Tanaka</p>
+<p style="text-align: center;">
+
+Mitchell O'Hara-Wild
+
+</p>
 
 <br>
 
-<p style="text-align: center;">Mitchell O'Hara-Wild </p>
+<p style="text-align: center;">
 
-<br>
-<p style="text-align: center;">Dr. Jessica Leung</p>
+Dr. Jessica Leung
 
-
-
-
+</p>

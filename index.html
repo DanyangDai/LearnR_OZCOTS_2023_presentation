@@ -8,7 +8,7 @@
 <link href="index_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="index_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="index_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.3.340">
+  <meta name="generator" content="quarto-1.4.418">
 
   <meta name="author" content="Danyang Dai">
   <title>Open-source interactive self-paced R learning website</title>
@@ -31,7 +31,7 @@
     }
     /* CSS for syntax highlighting */
     pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span { line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -95,7 +95,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto.css" id="theme">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto.css">
   <link rel="stylesheet" href="assets/custom.css">
   <link rel="stylesheet" href="assets/tachyons-addon.css">
   <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -223,7 +223,8 @@
   }
 
   .callout.callout-titled .callout-body > .callout-content > :last-child {
-    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
   }
 
   .callout.callout-titled .callout-icon::before {
@@ -402,16 +403,16 @@ Open-source interactive self-paced R learning website
 <div style="overflow: hidden; height: 1.2em;">
 <ul class="content__container__list center" style="text-align: center">
 <li class="content__container__list__item">
-Monash University
+Mitchell O’Hara-Wild @ Monash University
 </li>
 <li class="content__container__list__item">
-Mitchell O’Hara-Wild
+<i class="fas fa-envelope"></i> danyang.dai@uq.edu.au
 </li>
 <li class="content__container__list__item">
-Australia National University
+Emi Tanaka @ Australia National University
 </li>
 <li class="content__container__list__item">
-Emi Tanaka
+<i class="fas fa-globe"></i> https://dai.netlify.app/
 </li>
 </ul>
 </div>
@@ -421,7 +422,7 @@ Emi Tanaka
 <p><span class="rladies-purple">16th of November</span> <span class="rladies-purple">Statistical Society of Australia - QLD</span></p>
 </div>
 <aside class="notes">
-<p>Hello everybody. Thank you for coming today. I am a first year PhD student at the University of Queensland in the faculty of Medicine. Before I joined UQ, I was working at Monash in the department of Econometrics and Business Statistics and public health department. This body of work is driven by my working experience as statistics and econometrics tutor along with my colleague Emi Tanaka and Mitchell O’Hara-Wild.</p>
+<p>Hello everybody. Thank you for coming today. I am a first year PhD student at the University of Queensland in the faculty of Medicine. Before I joined UQ, I was working at Monash in the department of Econometrics and Business Statistics and public health department. This body of work is driven by my working experience as statistics and econometrics tutor along with my colleagues Emi Tanaka and Mitchell O’Hara-Wild.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -476,11 +477,11 @@ Emi Tanaka
 <p><img data-src="images/read_csv_error3.png" class="fragment" width="1000"></p>
 </div>
 <ul>
-<li class="fragment">And many more unexpected <span style="color: red;"> errors</span>!</li>
+<li class="fragment">And many more unexpected <span style="color: red;">errors</span>!</li>
 </ul>
 </div>
 <aside class="notes">
-<p>I am sure many of the statistics and data sciences educators had experienced something similar before. When teaching first year data analysis and statistics units, we sometime unwillingly spent way to much time helping students with their coding problems and sometime event just installation issues. These precious time were taken away from actual courses materials delivering. The current mode of teaching requires tutors to come to every students and help them with their individual bugs. If we are lucky, there will be some students who can help each other out.</p>
+<p>I am sure many of the statistics and data sciences educators had experienced something similar before. When teaching first year data analysis and statistics units, we sometime unwillingly spent way too much time helping students with their coding problems and sometime even just installation issues. These precious time were taken away from actual courses materials delivering. The current mode of teaching requires tutors to come to every students and help them with their individual bugs. If we are lucky, there will be some students who can help each other out.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -500,8 +501,8 @@ Emi Tanaka
 <p><br></p>
 <p class="big" ,="" style="text-align: center;">😠💥 ❗</p>
 <aside class="notes">
-<p>As the statistical concepts are the focus of the subject, during lectures and tutorials, we normally implement an error-free classroom as we just cannot afford to spend too much time on teaching students debug. Students tend to get frustrated when they in counter error messages.</p>
-<p>So how should we manage this inefficient way of education mode?</p>
+<p>As the statistical concepts are the central focus of the subject, during lectures and tutorials, we normally present an error-free code in classroom. We just cannot afford to spend too much time teaching students how to debug. Students tend to get frustrated when they in encounter error messages.</p>
+<p>So how should we manage this in education?</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -523,8 +524,8 @@ Emi Tanaka
 </ul>
 </div>
 <aside class="notes">
-<p>From the Book teach like a Champion, it tells us that educators should make students to feel comfortable of making mistakes. And that includes normalizing error codes.</p>
-<p>This valuable lesson of debugging wasn’t incorporated in our daily teaching. Even when the lectures and tutorials are all being delivered in error-free way. We have carefully designed the materials and we made sure that there isn’t any errors within our materials.</p>
+<p>From the book Teach like a Champion, it tells us that educators should make students to feel comfortable of making mistakes. And that includes normalizing error codes.</p>
+<p>This valuable lesson of debugging wasn’t incorporated in our daily teaching. Even when the lectures and tutorials are all being delivered in an error-free way. We have carefully designed the materials and we made sure that there isn’t any errors within our materials.</p>
 <p>However, as much as we want it to be an error free environment, it cannot be true. As shown before, students would always encounter some error codes.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -558,7 +559,7 @@ Emi Tanaka
 </div>
 </div>
 <aside class="notes">
-<p>There are some basics self-checking techniques that we can teach students to help themselves. For example, it would be simple typos somewhere in your function or the path you supplied. Another common mistakes is syntax errors. This sometime can be easy and difficult to spot depending on how long your function is. A common on that I sometime make is using pips for ggplot where it should be plus sign. If it comes to a relatively complex question, goggling is the next step we recommend students to do.</p>
+<p>There are some basic self-checking techniques that we can teach students to help themselves. For example, it would be simple typos somewhere in your function or the path you supplied. Another common mistakes is syntax errors. This sometime can be easy and difficult to spot depending on how long your function is. A common on that I sometime make is using pips for ggplot where it should be plus sign. If it comes to a relatively complex question, goggling is the next step we recommend students to do.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -575,13 +576,13 @@ Emi Tanaka
 <h2><span data-auto-animate="true">It is okay to ask question, but where 😕</span></h2>
 <div class="fragment">
 <ul>
-<li class="fragment">Unit’s Moodle page</li>
+<li class="fragment">Unit’s learning mangement platform (e.g.&nbsp;Moodle) page</li>
 <li class="fragment"><a href="https://stackoverflow.com/questions/tagged/rstudio">Stack Overflow</a></li>
 <li class="fragment"><a href="https://community.rstudio.com">Posit Community</a></li>
-<li class="fragment"><a href="https://github.com">Github</a></li>
+<li class="fragment"><a href="https://github.com">Github issues</a></li>
 </ul>
 <aside class="notes">
-<p>In additional on encouraging students to debug themselves, we also recommend students to help each other out by posting their questions on Moodle pages. This is also a good practice for students to normalizing making mistakes. When you see other people having the same problem, you know that you are not the only one. You are all in this together. Students will also be able to build their knowledge sets and confident by helping others out. There are other public channels where you can seek for help such us Stack Overflow, Posit Community and Github if you have any specific questions that you want to direct it to the package authors.</p>
+<p>In additional on encouraging students to debug themselves, we also recommend students to help each other out by posting their questions on Moodle pages. This is also a good practice for students to normalizing making mistakes. When you see other people having the same problem, you know that you are not the only one. You are all in this together. Students will also be able to build their knowledge sets and confident by helping others out. There are other public channels where you can seek for help such us Stack Overflow, Posit Community and Github issues if you have any specific questions that you want to direct it to the package authors.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -601,7 +602,7 @@ Emi Tanaka
 <div class="column" style="width:30%;">
 <div class="fragment">
 <!-- -->
-<h3 id="question"><span style="color: red;"> QUESTION</span> 🔕</h3>
+<h3 id="question"><span style="color: red;">QUESTION</span> 🚭</h3>
 </div>
 </div><div class="column" style="width:70%;">
 <div class="fragment">
@@ -640,7 +641,7 @@ Emi Tanaka
 <iframe width="1000" height="500" src="https://learnr.numbat.space/chapter3#4" title="Minimal reproducibke examples"></iframe>
 </div>
 <aside class="notes">
-<p>All the procedures mentioned above have been packaged up into our learnR website.</p>
+<p>All the procedures mentioned above have been packaged up into our LearnR website.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -654,12 +655,12 @@ Emi Tanaka
       }</style></aside>
 </section>
 <section id="more-to-learnr-website" class="slide level2">
-<h2><span data-auto-animate="true">More to learnR website</span></h2>
+<h2><span data-auto-animate="true">More to LearnR website</span></h2>
 <div class="fragment">
 <iframe width="1000" height="500" src="https://learnr.numbat.space" title="LearnR"></iframe>
 </div>
 <div class="fragment">
-<p><a href="https://learnr.numbat.space">https://learnr.numbat.space</a></p>
+<p><i class="fas fa-globe"></i> <a href="https://learnr.numbat.space" class="uri">https://learnr.numbat.space</a></p>
 </div>
 <aside class="notes">
 <p>This is an interactive introduction to data analysis with R. There are 9 chapters ordered from teaching students who to install R and RStudio to more advanced R programming skills such as data visualization and regressions.</p>
@@ -678,20 +679,18 @@ Emi Tanaka
 </section>
 <section id="did-it-work" class="slide level2">
 <h2><span data-auto-animate="true">Did it work?</span></h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="fragment">
-<p><img data-src="images/numberofusers.jpg"></p>
-</div>
-</div><div class="column" style="width:50%;">
-<div class="fragment">
-<p><img data-src="images/ratings.jpg"></p>
-</div>
-</div>
-</div>
-<aside class="notes">
-<p>We have encouraged units coordinator to use our LearnR websites during orientation week where students can get a head start on R basics. We can see a decline of users toward the end of the semester. This is align with what we expected. The demand of leaernR websites is high for students at the start of the semester where we expect them to use it for self-learning. Where later in the semester, they are less depended on learnR website. The amount of time that they spend on learnR is the amount of time that tutors saved in classroom teaching the basics of R.</p>
-<p>With the survey we sent out to students for feedback, we got 8 out of 10 for satisfaction on the effectiveness of this resources.</p>
+
+<img data-src="images/numberofusers.jpg" class="r-stretch"></section>
+<section id="section" class="slide level2">
+<h2></h2>
+
+<img data-src="images/engagement.jpg" class="r-stretch"></section>
+<section id="section-1" class="slide level2">
+<h2></h2>
+
+<img data-src="images/ratings.jpg" class="r-stretch"><aside class="notes">
+<p>We have encouraged units coordinator to use our LearnR websites during orientation week where students can get a head start on R basics. We can see a decline of users toward the end of the semester. This is align with what we expected. The demand of LearnR websites is high for students at the start of the semester where we expect them to use it for self-learning. Where later in the semester, they are less depended on LearnR website. The amount of time that they spend on learnR is the amount of time that tutors saved in classroom teaching the basics of R.</p>
+<p>With the survey we sent out to students for feedback, we got 8 out of 10 for satisfaction on the effectiveness of this resources. We have a low rating here, but it turns out that when we read the comment, it wasn’t about the LearnR website but about their course.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -704,11 +703,12 @@ Emi Tanaka
           display:block!important;
       }</style></aside>
 </section>
-<section id="section" class="slide level2" data-auto-animate="true">
+<section id="section-2" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 
 <img data-src="images/bg_titlepage.jpeg" class="r-stretch"><aside class="notes">
 <p>We want to teach students the skills sets of being able to learn beyond the coursework. So they can continue learning for a life time.</p>
+<p>We provide an online learning tool that include a chapter about equipping students with how to ask for help and troubleshoot.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -725,16 +725,16 @@ Emi Tanaka
 <h2><span data-auto-animate="true">Acknowledgement</span></h2>
 <p><br></p>
 <p style="text-align: center;">
-Dr.&nbsp;Emi Tanaka
-</p>
+</p><p>Dr.&nbsp;Emi Tanaka</p>
+<p></p>
 <p><br></p>
 <p style="text-align: center;">
-Mitchell O’Hara-Wild
-</p>
-<br>
+</p><p>Mitchell O’Hara-Wild</p>
+<p></p>
+<p><br></p>
 <p style="text-align: center;">
-Dr.&nbsp;Jessica Leung
-</p>
+</p><p>Dr.&nbsp;Jessica Leung</p>
+<p></p>
 
 <img src="images/logos.jpeg" class="slide-logo r-stretch"><div class="footer footer-default">
 
@@ -769,7 +769,6 @@ Dr.&nbsp;Jessica Leung
       Reveal.initialize({
 'controlsAuto': false,
 'previewLinksAuto': false,
-'smaller': false,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
@@ -1069,10 +1068,9 @@ Dr.&nbsp;Jessica Leung
         // clear code selection
         e.clearSelection();
       });
-      function tippyHover(el, contentFn) {
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
         const config = {
           allowHTML: true,
-          content: contentFn,
           maxWidth: 500,
           delay: 100,
           arrow: false,
@@ -1082,8 +1080,17 @@ Dr.&nbsp;Jessica Leung
           interactive: true,
           interactiveBorder: 10,
           theme: 'light-border',
-          placement: 'bottom-start'
+          placement: 'bottom-start',
         };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
           config['offset'] = [0,0];
           config['maxWidth'] = 700;
         window.tippy(el, config); 
