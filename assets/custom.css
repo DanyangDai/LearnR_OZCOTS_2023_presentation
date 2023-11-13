@@ -237,6 +237,7 @@ blockquote:after {
 
 
 
+/****
 
 ol {
   counter-reset: li;
@@ -266,80 +267,8 @@ ol li:before {
   left: 0;
   top: 4px;
 }
+***/
 
-#Graphic_105 {
-  -webkit-animation-name: messageA;
-  -webkit-animation-duration: 3s;
-  -webkit-animation-iteration-count: infinite;
-  animation-name: messageA;
-  animation-duration: 3s;
-  animation-iteration-count: infinite;
-  opacity: 0;
-}
-
-@-webkit-keyframes messageA,  {
-  10% {
-    transform: translate3d(0, 0, 0);
-    opacity: 1;
-  }
-  100% {
-    transform: translate3d(8em, -3em, 0) rotate(45deg);
-    opacity: 1;
-  }
-}
-@keyframes messageA {
-  10% {
-    transform: translate3d(0, 0, 0);
-    opacity: 1;
-  }
-  100% {
-    transform: translate3d(8em, -3em, 0) rotate(45deg);
-    opacity: 1;
-  }
-}
-
-#Graphic_106 {
-  -webkit-animation-name: messageB;
-  -webkit-animation-duration: 3s;
-  -webkit-animation-iteration-count: infinite;
-  animation-name: messageB;
-  animation-duration: 3s;
-  animation-iteration-count: infinite;
-  opacity: 0;
-}
-
-@-webkit-keyframes messageB,  {
-  30% {
-    transform: translate3d(0, 0, 0);
-    opacity: 1;
-  }
-  90%,100% {
-    transform: translate3d(-1em, -5em, 0) rotate(45deg);
-    opacity: 1;
-  }
-}
-@keyframes messageB {
-  30% {
-    transform: translate3d(0, 0, 0);
-    opacity: 1;
-  }
-  90%,100% {
-    transform: translate3d(-1em, -5em, 0) rotate(45deg);
-    opacity: 1;
-  }
-}
-
-.control-diet, .sugar-diet, .fat-diet {
-  background: #4477AA;
-  padding: 5px;
-  color: #562457;
-  margin: 5px;
-  text-align: center;
-  width: 300px;  
-}
-
-.fat-diet { background: #AA3377; }
-.sugar-diet { background: #CCBB44; }
 
 .big {
   font-size: 100px;
