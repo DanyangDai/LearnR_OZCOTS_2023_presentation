@@ -73,6 +73,21 @@ fa_list <- function(x, incremental = FALSE) {
 Hello everybody. Thank you for coming today. I am a first year PhD student at the University of Queensland in the faculty of Medicine. Before I joined UQ, I was working at Monash in the department of Econometrics and Business Statistics and public health department. This body of work is driven by my working experience as statistics and econometrics tutor along with my colleagues Emi Tanaka and Mitchell O'Hara-Wild.
 :::
 
+## [Acknowledgement of Country]{auto-animate="true"}
+
+::: columns
+::: {.column width="50%"}
+<br><br>
+<p style="text-align: center;">I acknowledge the Traditional Owners and their custodianship of the lands on which we meet.  
+We pay our respects to their Ancestors and their descendants, who continue cultural and spiritual connections to Country.</p>
+:::
+
+::: {.column width="50%"}
+![](images/ack_cou.jpg){fig-align="center"}
+
+:::
+:::
+
 ## [Has this happened to you before?]{auto-animate="true"}
 
 Ideally, we could like to teach students read in a dataset and have a look at the structure of the data.
@@ -96,7 +111,7 @@ In reality:
 ![](images/read_csv_error3.png){.fragment width="1000"}
 :::
 
--   And many more unexpected [ errors]{style="color: red;"}!
+-   And many more unexpected [errors]{style="color: red;"}!
 :::
 
 ::: notes
@@ -183,7 +198,7 @@ In additional on encouraging students to debug themselves, we also recommend stu
 ::: columns
 ::: {.column width="30%"}
 ::: fragment
-### [ QUESTION]{style="color: red;"} `r emo::ji("no")`
+### [QUESTION]{style="color: red;"} `r emo::ji("no")`
 :::
 :::
 
@@ -246,14 +261,13 @@ This project aims to help students with no programming experience to learn how t
 
 ## [Did it work?]{auto-animate="true"}
 
-
 ![](images/numberofusers.jpg)
 
-## {}
+## 
 
 ![](images/engagement.jpg)
 
-## {}
+## 
 
 ![](images/ratings.jpg)
 
@@ -298,3 +312,9 @@ Mitchell O'Hara-Wild
 Dr. Jessica Leung
 
 </p>
+
+------------------------------------------------------------------------
+
+## [Resources]{auto-animate="true"}
+
+`r fa_list(c("fa-brands fa-slideshare" = "https://danyangdai.github.io/LearnR_OZCOTS_2023_presentation/","fa-brands fa-github" = "https://github.com/DanyangDai/LearnR_OZCOTS_2023_presentation","fa-solid fa-globe" = "https://learnr.numbat.space","fa-solid fa-code-branch" = "Collaborate at: https://github.com/numbats/learnr"))`

@@ -8,7 +8,7 @@
 <link href="index_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="index_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="index_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.418">
+  <meta name="generator" content="quarto-1.3.340">
 
   <meta name="author" content="Danyang Dai">
   <title>Open-source interactive self-paced R learning website</title>
@@ -31,7 +31,7 @@
     }
     /* CSS for syntax highlighting */
     pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -95,7 +95,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto.css">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto.css" id="theme">
   <link rel="stylesheet" href="assets/custom.css">
   <link rel="stylesheet" href="assets/tachyons-addon.css">
   <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -223,8 +223,7 @@
   }
 
   .callout.callout-titled .callout-body > .callout-content > :last-child {
-    padding-bottom: 0.5rem;
-    margin-bottom: 0;
+    margin-bottom: 0.5rem;
   }
 
   .callout.callout-titled .callout-icon::before {
@@ -435,6 +434,24 @@ Emi Tanaka @ Australia National University
           display:block!important;
       }</style></aside>
 </section>
+<section id="acknowledgement-of-country" class="slide level2">
+<h2><span data-auto-animate="true">Acknowledgement of Country</span></h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<br><br>
+<p style="text-align: center;">
+I acknowledge the Traditional Owners and their custodianship of the lands on which we meet.<br>
+We pay our respects to their Ancestors and their descendants, who continue cultural and spiritual connections to Country.
+</p>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/ack_cou.jpg"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
 <section id="has-this-happened-to-you-before" class="slide level2">
 <h2><span data-auto-animate="true">Has this happened to you before?</span></h2>
 <p>Ideally, we could like to teach students read in a dataset and have a look at the structure of the data.</p>
@@ -602,7 +619,7 @@ Emi Tanaka @ Australia National University
 <div class="column" style="width:30%;">
 <div class="fragment">
 <!-- -->
-<h3 id="question"><span style="color: red;">QUESTION</span> 🚭</h3>
+<h3 id="question"><span style="color: red;">QUESTION</span> 🙈</h3>
 </div>
 </div><div class="column" style="width:70%;">
 <div class="fragment">
@@ -735,6 +752,23 @@ Emi Tanaka @ Australia National University
 <p style="text-align: center;">
 </p><p>Dr.&nbsp;Jessica Leung</p>
 <p></p>
+</section>
+<section id="resources" class="slide level2">
+<h2><span data-auto-animate="true">Resources</span></h2>
+<ul class="fa-ul">
+<li class="">
+<span class="fa-li"><i class="fa-brands fa-slideshare"></i></span> https://danyangdai.github.io/LearnR_OZCOTS_2023_presentation/
+</li>
+<li class="">
+<span class="fa-li"><i class="fa-brands fa-github"></i></span> https://github.com/DanyangDai/LearnR_OZCOTS_2023_presentation
+</li>
+<li class="">
+<span class="fa-li"><i class="fa-solid fa-globe"></i></span> https://learnr.numbat.space
+</li>
+<li class="">
+<span class="fa-li"><i class="fa-solid fa-code-branch"></i></span> Collaborate at: https://github.com/numbats/learnr
+</li>
+</ul>
 
 <img src="images/logos.jpeg" class="slide-logo r-stretch"><div class="footer footer-default">
 
@@ -769,6 +803,7 @@ Emi Tanaka @ Australia National University
       Reveal.initialize({
 'controlsAuto': false,
 'previewLinksAuto': false,
+'smaller': false,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
@@ -1068,9 +1103,10 @@ Emi Tanaka @ Australia National University
         // clear code selection
         e.clearSelection();
       });
-      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      function tippyHover(el, contentFn) {
         const config = {
           allowHTML: true,
+          content: contentFn,
           maxWidth: 500,
           delay: 100,
           arrow: false,
@@ -1080,17 +1116,8 @@ Emi Tanaka @ Australia National University
           interactive: true,
           interactiveBorder: 10,
           theme: 'light-border',
-          placement: 'bottom-start',
+          placement: 'bottom-start'
         };
-        if (contentFn) {
-          config.content = contentFn;
-        }
-        if (onTriggerFn) {
-          config.onTrigger = onTriggerFn;
-        }
-        if (onUntriggerFn) {
-          config.onUntrigger = onUntriggerFn;
-        }
           config['offset'] = [0,0];
           config['maxWidth'] = 700;
         window.tippy(el, config); 
