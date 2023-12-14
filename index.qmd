@@ -1,8 +1,8 @@
 ---
 pagetitle: "Open-source interactive self-paced R learning website"
 author: "Danyang Dai"
-date: "16th of November"
-host: "Statistical Society of Australia - QLD"
+date: "15th of Decemeber"
+host: "OZCOST 2023"
 institute: "University of Queensland"
 strip-comments: true
 format: 
@@ -24,12 +24,14 @@ format:
 callout-icon: false
 execute:
   echo: true
+filters:
+   - roughnotation
 ---
 
 ##  {#title-slide background="images/bg_titlepage.jpeg" background-size="100%"}
 
 ```{r setup, include = FALSE}
-library(tidyverse)
+#library(tidyverse)
 library(emo)
 
 rotating_text <- function(x, align = "center") {
@@ -53,6 +55,19 @@ fa_list <- function(x, incremental = FALSE) {
         "</ul>", sep = "\n")
 }
 
+
+detach_package <- function(pkg, character.only = FALSE)
+{
+  if(!character.only)
+  {
+    pkg <- deparse(substitute(pkg))
+  }
+  search_item <- paste("package", pkg, sep = ":")
+  while(search_item %in% search())
+  {
+    detach(search_item, unload = TRUE, character.only = TRUE)
+  }
+}
 ```
 
 ::: title-box
@@ -86,11 +101,12 @@ We pay our respects to their Ancestors and their descendants, who continue cultu
 ![](images/ack_cou.jpg){fig-align="center"}
 
 :::
+
 :::
 
 ## [Has this happened to you before?]{auto-animate="true"}
 
-Ideally, we could like to teach students read in a dataset and have a look at the structure of the data.
+Ideally, we would like to teach students read in a dataset and have a look at the structure of the data.
 
 ```{r, eval = TRUE}
 library(tidyverse)
@@ -98,21 +114,69 @@ crabs <- read_csv("data/australian-crabs.csv")
 str(crabs)
 ```
 
-## [Has this happened to you before?]{auto-animate="true"}
 
-In reality:
+## [Has this happened to you before?]{auto-animate=true}
 
-::: incremental
-::: r-stack
-![](images/read_csv_error1.png){.fragment}
+<br><br>
 
-![](images/read_csv_error2.png){.fragment width="1000"}
 
-![](images/read_csv_error3.png){.fragment width="1000"}
+::: {.fragment .fade-in}
+
+```{r, echo = TRUE, eval=FALSE}
+library(tidyverse)
+crabs <- read_csv("data/australian-crabs.csv") 
+str(carbs)
+```
+
+```{r, eval = TRUE,echo=FALSE}
+library(tidyverse)
+crabs <- read_csv("data/australian-crabs.csv") 
+try(str(carbs))
+```
 :::
 
--   And many more unexpected [errors]{style="color: red;"}!
+
+## [Has this happened to you before?]{auto-animate=true}
+
+<br><br>
+
+::: {.fragment.fade-in}
+
+```{r, echo = TRUE, eval=FALSE}
+library(tidyverse)
+crabs <- read_csv("data/australian-crabs.csv") 
+```
+
+```{r, eval = TRUE,echo=FALSE}
+try(read_csv("data/australian crabs.csv"))
+```
 :::
+
+
+
+## [Has this happened to you before?]{auto-animate=true}
+
+<br><br>
+
+
+::: {.fragment.fade-in}
+
+```{r, echo = TRUE, eval=FALSE}
+library(tidyverse)
+crabs <- read_csv("data/australian-crabs.csv") 
+```
+
+```{r, eval = TRUE,echo=FALSE}
+detach_package(tidyverse)
+detach_package(readr)
+try(read_csv("data/australian-crabs.csv"))
+```
+
+- [And many more unexpected [errors]{style="color: red;"}!]{.rn rn-type=underline rn-color=red}
+
+:::
+
+
 
 ::: notes
 I am sure many of the statistics and data sciences educators had experienced something similar before. When teaching first year data analysis and statistics units, we sometime unwillingly spent way too much time helping students with their coding problems and sometime even just installation issues. These precious time were taken away from actual courses materials delivering. The current mode of teaching requires tutors to come to every students and help them with their individual bugs. If we are lucky, there will be some students who can help each other out.
@@ -141,9 +205,9 @@ So how should we manage this in education?
 ## [It is ok to make mistakes]{auto-animate="true"}
 
 ::: fragment
--   "Great teachers make it safe to be wrong. They build a Culture of Error that respects, normalizes,and values learning from errors." by Doug Lemov and Norman Atkins from Teach Like a Champion 2.0.
+-   "Great teachers make it safe to be wrong. They build a [Culture of Error that respects, normalizes,and values learning from errors.]{.rn rn-type=highlight}" by Doug Lemov and Norman Atkins from Teach Like a Champion 2.0.
 
--   Studies[^1] have suggested that students learn more during debug session compared to error-free lecture.
+-   Studies[^1] have suggested that students [learn more]{.rn rn-type=highlight} during debug session compared to error-free lecture.
 :::
 
 [^1]: Dalbey, J., and Linn, M. (1985),Deek, F. P., and McHugh, J. A. (1998), Hoffman & Angelo F. Elmi (2021)
@@ -160,17 +224,52 @@ However, as much as we want it to be an error free environment, it cannot be tru
 
 ::: columns
 ::: {.column width="50%"}
-::: fragment
-![](images/read_csv_error4.png) ![](images/syntax_error1.png) ![](images/read_csv_error1.png)
+```{r, echo = TRUE, eval=FALSE}
+library(tidyverse)
+str(carbs)
+```
+
+```{r, eval = TRUE,echo=FALSE}
+try(str(carbs))
+```
+
+
+<br>
+
+
+```{r, echo = TRUE, eval=FALSE}
+library(tidyverse)
+crabs <- read_csv("data/australian-crabs.csv") 
+```
+
+```{r, eval = TRUE,echo=FALSE}
+detach_package(tidyverse)
+detach_package(readr)
+try(read_csv("data/australian-crabs.csv"))
+```
+
+<br>
+
+
+```{r, echo = TRUE, eval=FALSE}
+crabs %>% 
+  mutate(female = ifelse(sex == "Famle",1,0)))
+```
+
+```{r, eval = TRUE,echo=FALSE,error=TRUE}
+print(try(crabs %>% 
+  mutate(female = ifelse(sex == "Famle",1,0)))))
+```
+
 :::
-:::
+
 
 ::: {.column width="50%"}
 ::: fragment
--   Check Spelling
--   Syntax missing `(` or `)` or `{` or `}` ect.
+-   Check spelling
+-   Syntax missing `(` or `)` or `{` or `}` etc.
 -   Loading required packages
--   Search the messages
+-   Search and Google the messages
 -   Turn it on and off again `r emo::ji("angel")`
 :::
 :::
@@ -186,7 +285,7 @@ There are some basic self-checking techniques that we can teach students to help
 -   Unit's learning mangement platform (e.g. Moodle) page
 -   [Stack Overflow](https://stackoverflow.com/questions/tagged/rstudio)
 -   [Posit Community](https://community.rstudio.com)
--   [Github issues](https://github.com)
+-   [Github Issues](https://github.com)
 
 ::: notes
 In additional on encouraging students to debug themselves, we also recommend students to help each other out by posting their questions on Moodle pages. This is also a good practice for students to normalizing making mistakes. When you see other people having the same problem, you know that you are not the only one. You are all in this together. Students will also be able to build their knowledge sets and confident by helping others out. There are other public channels where you can seek for help such us Stack Overflow, Posit Community and Github issues if you have any specific questions that you want to direct it to the package authors.
@@ -198,17 +297,17 @@ In additional on encouraging students to debug themselves, we also recommend stu
 ::: columns
 ::: {.column width="30%"}
 ::: fragment
-### [QUESTION]{style="color: red;"} `r emo::ji("no")`
+### [[QUESTION]{style="color: red;"}]{.rn rn-type=crossed-off rn-color=red}
 :::
 :::
 
 ::: {.column width="70%"}
 ::: fragment
-### Minimal reproducible examples
+### [Minimal reproducible examples]{.rn rn-type=circle rn-color=blue}
 
--   Does your error relates to dataset? Provide minimal datasets
+-   Does your error relate to dataset? Provide minimal datasets
 
--   Provide minimal code. Not just a screenshot.
+-   Provide minimal code (not just a screenshot)
 
 -   Provide session information using `sessioninfo::session_info()`
 
@@ -290,10 +389,17 @@ We provide an online learning tool that include a chapter about equipping studen
 ## [Acknowledgement]{auto-animate="true"}
 
 <br>
-
 <p style="text-align: center;">
 
-Dr. Emi Tanaka
+Dr. Emi Tanaka `r emo::ji("e-mail")` [emi.tanaka@anu.edu.au](emi.tanaka@anu.edu.au)
+
+</p>
+
+<br>
+<p style="text-align: center;">
+
+Mitchell O'Hara-Wild `r emo::ji("e-mail")` [mitch.ohara-wild@monash.edu.au](mitch.ohara-wild@monash.edu.au)
+
 
 </p>
 
@@ -301,20 +407,31 @@ Dr. Emi Tanaka
 
 <p style="text-align: center;">
 
-Mitchell O'Hara-Wild
+Dr. Jessica Leung `r emo::ji("e-mail")` [Jessica.Leung@monash.edu](Jessica.Leung@monash.edu)
 
 </p>
 
-<br>
+::: {layout="[70,20]"}
 
-<p style="text-align: center;">
+![](images/logos.jpeg)
 
-Dr. Jessica Leung
+![](images/ssa.png)
+:::
 
-</p>
 
 ------------------------------------------------------------------------
 
-## [Resources]{auto-animate="true"}
 
-`r fa_list(c("fa-brands fa-slideshare" = "https://danyangdai.github.io/LearnR_OZCOTS_2023_presentation/","fa-brands fa-github" = "https://github.com/DanyangDai/LearnR_OZCOTS_2023_presentation","fa-solid fa-globe" = "https://learnr.numbat.space","fa-solid fa-code-branch" = "Collaborate at: https://github.com/numbats/learnr"))`
+
+## [Resources and future work]{auto-animate="true"}
+
+`r fa_list(c("fa-brands fa-slideshare" = "danyangdai.github.io/LearnR_OZCOTS_2023_presentation/","fa-brands fa-github" = "github.com/DanyangDai/LearnR_OZCOTS_2023_presentation","fa-solid fa-globe" = "learnr.numbat.space","fa-solid fa-code-branch" = "Collaborate at: github.com/numbats/learnr"))`
+
+Danyang Dai `r emo::ji("e-mail")` [danyang.dai@uq.edu.au](dayang.dai@uq.edu.au)
+
+Dr. Emi Tanaka `r emo::ji("e-mail")` [emi.tanaka@anu.edu.au](emi.tanaka@anu.edu.au)
+
+Mitchell O'Hara-Wild `r emo::ji("e-mail")` [mitch.ohara-wild@monash.edu.au](mitch.ohara-wild@monash.edu.au)
+
+
+

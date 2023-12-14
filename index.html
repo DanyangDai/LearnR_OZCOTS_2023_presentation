@@ -7,7 +7,9 @@
 <link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="index_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="index_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="index_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<link href="index_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="index_files/libs/quarto-contrib/roughnotation-0.5.1/rough-notation.iife.js"></script>
+<script src="index_files/libs/quarto-contrib/roughnotation-init-1.0.0/rough.js"></script><meta charset="utf-8">
   <meta name="generator" content="quarto-1.3.340">
 
   <meta name="author" content="Danyang Dai">
@@ -418,7 +420,7 @@ Emi Tanaka @ Australia National University
 </div>
 <p><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
 <div class="absolute top-0 rladies-purple w-100 font-small" style="">
-<p><span class="rladies-purple">16th of November</span> <span class="rladies-purple">Statistical Society of Australia - QLD</span></p>
+<p><span class="rladies-purple">15th of Decemeber</span> <span class="rladies-purple">OZCOST 2023</span></p>
 </div>
 <aside class="notes">
 <p>Hello everybody. Thank you for coming today. I am a first year PhD student at the University of Queensland in the faculty of Medicine. Before I joined UQ, I was working at Monash in the department of Econometrics and Business Statistics and public health department. This body of work is driven by my working experience as statistics and econometrics tutor along with my colleagues Emi Tanaka and Mitchell O’Hara-Wild.</p>
@@ -454,7 +456,7 @@ We pay our respects to their Ancestors and their descendants, who continue cultu
 </section>
 <section id="has-this-happened-to-you-before" class="slide level2">
 <h2><span data-auto-animate="true">Has this happened to you before?</span></h2>
-<p>Ideally, we could like to teach students read in a dataset and have a look at the structure of the data.</p>
+<p>Ideally, we would like to teach students read in a dataset and have a look at the structure of the data.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2"></a>crabs <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/australian-crabs.csv"</span>) </span>
@@ -486,15 +488,51 @@ We pay our respects to their Ancestors and their descendants, who continue cultu
 </section>
 <section id="has-this-happened-to-you-before-1" class="slide level2">
 <h2><span data-auto-animate="true">Has this happened to you before?</span></h2>
-<p>In reality:</p>
-<div>
-<div class="r-stack">
-<p><img data-src="images/read_csv_error1.png" class="fragment"></p>
-<p><img data-src="images/read_csv_error2.png" class="fragment" width="1000"></p>
-<p><img data-src="images/read_csv_error3.png" class="fragment" width="1000"></p>
+<p><br><br></p>
+<div class="fragment fade-in">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb3-2"><a href="#cb3-2"></a>crabs <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/australian-crabs.csv"</span>) </span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="fu">str</span>(carbs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Error in str(carbs) : object 'carbs' not found</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="has-this-happened-to-you-before-2" class="slide level2">
+<h2><span data-auto-animate="true">Has this happened to you before?</span></h2>
+<p><br><br></p>
+<div class="fragment.fade-in">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb5-2"><a href="#cb5-2"></a>crabs <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/australian-crabs.csv"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Error : 'data/australian crabs.csv' does not exist in current working directory ('/Users/s4775530/Github/LearnR_OZCOTS_2023_presentation').</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="has-this-happened-to-you-before-3" class="slide level2">
+<h2><span data-auto-animate="true">Has this happened to you before?</span></h2>
+<p><br><br></p>
+<div class="fragment.fade-in">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb7-2"><a href="#cb7-2"></a>crabs <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/australian-crabs.csv"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Error in read_csv("data/australian-crabs.csv") : 
+  could not find function "read_csv"</code></pre>
+</div>
 </div>
 <ul>
-<li class="fragment">And many more unexpected <span style="color: red;">errors</span>!</li>
+<li class="fragment"><span class="rn" data-rn-type="underline" data-rn-color="red">And many more unexpected <span style="color: red;">errors</span>!</span></li>
 </ul>
 </div>
 <aside class="notes">
@@ -536,8 +574,8 @@ We pay our respects to their Ancestors and their descendants, who continue cultu
 <h2><span data-auto-animate="true">It is ok to make mistakes</span></h2>
 <div class="fragment">
 <ul>
-<li class="fragment"><p>“Great teachers make it safe to be wrong. They build a Culture of Error that respects, normalizes,and values learning from errors.” by Doug Lemov and Norman Atkins from Teach Like a Champion 2.0.</p></li>
-<li class="fragment"><p>Studies<sup>1</sup> have suggested that students learn more during debug session compared to error-free lecture.</p></li>
+<li class="fragment"><p>“Great teachers make it safe to be wrong. They build a <span class="rn" data-rn-type="highlight">Culture of Error that respects, normalizes,and values learning from errors.</span>” by Doug Lemov and Norman Atkins from Teach Like a Champion 2.0.</p></li>
+<li class="fragment"><p>Studies<sup>1</sup> have suggested that students <span class="rn" data-rn-type="highlight">learn more</span> during debug session compared to error-free lecture.</p></li>
 </ul>
 </div>
 <aside class="notes">
@@ -560,16 +598,46 @@ We pay our respects to their Ancestors and their descendants, who continue cultu
 <h2><span data-auto-animate="true">Understanding error code</span></h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div class="fragment">
-<p><img data-src="images/read_csv_error4.png"> <img data-src="images/syntax_error1.png"> <img data-src="images/read_csv_error1.png"></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="fu">str</span>(carbs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Error in str(carbs) : object 'carbs' not found</code></pre>
+</div>
+</div>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb11-2"><a href="#cb11-2"></a>crabs <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/australian-crabs.csv"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Error in read_csv("data/australian-crabs.csv") : 
+  could not find function "read_csv"</code></pre>
+</div>
+</div>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>crabs <span class="sc">%&gt;%</span> </span>
+<span id="cb13-2"><a href="#cb13-2"></a>  <span class="fu">mutate</span>(<span class="at">female =</span> <span class="fu">ifelse</span>(sex <span class="sc">==</span> <span class="st">"Famle"</span>,<span class="dv">1</span>,<span class="dv">0</span>))<span class="er">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-error">
+<pre><code>Error: &lt;text&gt;:2:48: unexpected ')'
+1: print(try(crabs %&gt;% 
+2:   mutate(female = ifelse(sex == "Famle",1,0)))))
+                                                  ^</code></pre>
+</div>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="fragment">
 <ul>
-<li class="fragment">Check Spelling</li>
-<li class="fragment">Syntax missing <code>(</code> or <code>)</code> or <code>{</code> or <code>}</code> ect.</li>
+<li class="fragment">Check spelling</li>
+<li class="fragment">Syntax missing <code>(</code> or <code>)</code> or <code>{</code> or <code>}</code> etc.</li>
 <li class="fragment">Loading required packages</li>
-<li class="fragment">Search the messages</li>
+<li class="fragment">Search and Google the messages</li>
 <li class="fragment">Turn it on and off again 👼</li>
 </ul>
 </div>
@@ -596,7 +664,7 @@ We pay our respects to their Ancestors and their descendants, who continue cultu
 <li class="fragment">Unit’s learning mangement platform (e.g.&nbsp;Moodle) page</li>
 <li class="fragment"><a href="https://stackoverflow.com/questions/tagged/rstudio">Stack Overflow</a></li>
 <li class="fragment"><a href="https://community.rstudio.com">Posit Community</a></li>
-<li class="fragment"><a href="https://github.com">Github issues</a></li>
+<li class="fragment"><a href="https://github.com">Github Issues</a></li>
 </ul>
 <aside class="notes">
 <p>In additional on encouraging students to debug themselves, we also recommend students to help each other out by posting their questions on Moodle pages. This is also a good practice for students to normalizing making mistakes. When you see other people having the same problem, you know that you are not the only one. You are all in this together. Students will also be able to build their knowledge sets and confident by helping others out. There are other public channels where you can seek for help such us Stack Overflow, Posit Community and Github issues if you have any specific questions that you want to direct it to the package authors.</p>
@@ -619,15 +687,15 @@ We pay our respects to their Ancestors and their descendants, who continue cultu
 <div class="column" style="width:30%;">
 <div class="fragment">
 <!-- -->
-<h3 id="question"><span style="color: red;">QUESTION</span> 🙈</h3>
+<h3 id="question"><span class="rn" data-rn-type="crossed-off" data-rn-color="red"><span style="color: red;">QUESTION</span></span></h3>
 </div>
 </div><div class="column" style="width:70%;">
 <div class="fragment">
 <!-- -->
-<h3 id="minimal-reproducible-examples">Minimal reproducible examples</h3>
+<h3 id="minimal-reproducible-examples"><span class="rn" data-rn-type="circle" data-rn-color="blue">Minimal reproducible examples</span></h3>
 <ul>
-<li class="fragment"><p>Does your error relates to dataset? Provide minimal datasets</p></li>
-<li class="fragment"><p>Provide minimal code. Not just a screenshot.</p></li>
+<li class="fragment"><p>Does your error relate to dataset? Provide minimal datasets</p></li>
+<li class="fragment"><p>Provide minimal code (not just a screenshot)</p></li>
 <li class="fragment"><p>Provide session information using <code>sessioninfo::session_info()</code></p></li>
 <li class="fragment"><p>Using the <code>reprex</code> package for producing examples</p></li>
 </ul>
@@ -740,35 +808,48 @@ We pay our respects to their Ancestors and their descendants, who continue cultu
 </section>
 <section id="acknowledgement" class="slide level2">
 <h2><span data-auto-animate="true">Acknowledgement</span></h2>
-<p><br></p>
+<br>
 <p style="text-align: center;">
-</p><p>Dr.&nbsp;Emi Tanaka</p>
+</p><p>Dr.&nbsp;Emi Tanaka 📧 <a href="emi.tanaka@anu.edu.au">emi.tanaka@anu.edu.au</a></p>
+<p></p>
+<br>
+<p style="text-align: center;">
+</p><p>Mitchell O’Hara-Wild 📧 <a href="mitch.ohara-wild@monash.edu.au">mitch.ohara-wild@monash.edu.au</a></p>
 <p></p>
 <p><br></p>
 <p style="text-align: center;">
-</p><p>Mitchell O’Hara-Wild</p>
+</p><p>Dr.&nbsp;Jessica Leung 📧 <a href="Jessica.Leung@monash.edu">Jessica.Leung@monash.edu</a></p>
 <p></p>
-<p><br></p>
-<p style="text-align: center;">
-</p><p>Dr.&nbsp;Jessica Leung</p>
-<p></p>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 77.8%;justify-content: center;">
+<p><img data-src="images/logos.jpeg"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 22.2%;justify-content: center;">
+<p><img data-src="images/ssa.png"></p>
+</div>
+</div>
+</div>
 </section>
-<section id="resources" class="slide level2">
-<h2><span data-auto-animate="true">Resources</span></h2>
+<section id="resources-and-future-work" class="slide level2">
+<h2><span data-auto-animate="true">Resources and future work</span></h2>
 <ul class="fa-ul">
 <li class="">
-<span class="fa-li"><i class="fa-brands fa-slideshare"></i></span> https://danyangdai.github.io/LearnR_OZCOTS_2023_presentation/
+<span class="fa-li"><i class="fa-brands fa-slideshare"></i></span> danyangdai.github.io/LearnR_OZCOTS_2023_presentation/
 </li>
 <li class="">
-<span class="fa-li"><i class="fa-brands fa-github"></i></span> https://github.com/DanyangDai/LearnR_OZCOTS_2023_presentation
+<span class="fa-li"><i class="fa-brands fa-github"></i></span> github.com/DanyangDai/LearnR_OZCOTS_2023_presentation
 </li>
 <li class="">
-<span class="fa-li"><i class="fa-solid fa-globe"></i></span> https://learnr.numbat.space
+<span class="fa-li"><i class="fa-solid fa-globe"></i></span> learnr.numbat.space
 </li>
 <li class="">
-<span class="fa-li"><i class="fa-solid fa-code-branch"></i></span> Collaborate at: https://github.com/numbats/learnr
+<span class="fa-li"><i class="fa-solid fa-code-branch"></i></span> Collaborate at: github.com/numbats/learnr
 </li>
 </ul>
+<p>Danyang Dai 📧 <a href="dayang.dai@uq.edu.au">danyang.dai@uq.edu.au</a></p>
+<p>Dr.&nbsp;Emi Tanaka 📧 <a href="emi.tanaka@anu.edu.au">emi.tanaka@anu.edu.au</a></p>
+<p>Mitchell O’Hara-Wild 📧 <a href="mitch.ohara-wild@monash.edu.au">mitch.ohara-wild@monash.edu.au</a></p>
 
 <img src="images/logos.jpeg" class="slide-logo r-stretch"><div class="footer footer-default">
 
